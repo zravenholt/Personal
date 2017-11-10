@@ -5,6 +5,10 @@ html, body {
   font-family: sans-serif;
 }
 
+.about {
+  width: 100%;
+}
+
 .arrow {
   display: inline;
   position: relative;

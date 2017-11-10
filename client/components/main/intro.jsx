@@ -62,7 +62,6 @@ class Intro extends React.Component {
           <img className='arrow' onClick={() => { this.changePicture('right'); }} src='./styles/rightArrow.svg.png'/>
         </div>
         <div className='pic-blurb'>{this.state.descriptionList[this.state.picLocation % this.state.descriptionList.length]}</div>
-        <button onClick={() => { this.changePicture('right'); }}></button>
       </div>
     );
   }

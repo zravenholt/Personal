@@ -1,5 +1,6 @@
 import React from 'react';
 import Intro from './intro.jsx';
+import About from './about.jsx';
 
 class Main extends React.Component {
   constructor (props) {
@@ -17,6 +18,7 @@ class Main extends React.Component {
     return (
       <div className='main'>
         <Intro />
+        <About />
       </div>
     );
   }
