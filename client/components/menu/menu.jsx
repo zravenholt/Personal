@@ -12,8 +12,13 @@ class Menu extends React.Component {
 
   render () {
     return (
-      <div>
-        <div className='Menu'>Menu</div>
+      <div className='Menu'>
+        <div className='menu-bar'>
+          <div className='links'>Photos</div>
+          <div className='links'>About me</div>
+          <div className='links'>Projects</div>
+          <div className='links'>Contact Info</div>
+        </div>
       </div>
     );
   }

@@ -23760,11 +23760,30 @@ var Menu = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'Menu' },
         _react2.default.createElement(
           'div',
-          { className: 'Menu' },
-          'Menu'
+          { className: 'menu-bar' },
+          _react2.default.createElement(
+            'div',
+            { className: 'links' },
+            'Photos'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'links' },
+            'About me'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'links' },
+            'Projects'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'links' },
+            'Contact Info'
+          )
         )
       );
     }
@@ -23870,7 +23889,7 @@ var Intro = function (_React$Component) {
       picLocation: 0,
       picIDList: ['tiger', 'ugandan', 'katie'],
       sourceList: ['./styles/IntroPic.jpg', './styles/IntroPic2.jpg', './styles/IntroPic3.jpg'],
-      descriptionList: ['This is me with my friend; Hobbes the Tiger. ' + 'We share similar passions of adventuring, good meals, and algorithm puzzles. ' + 'We do not share tail-mustache humor.', 'You might be asking; "Why is he holding Ugandan gin in one hand, ' + 'a large rock in the other, and wearing a zebra shirt?" ' + 'That"s a good question. Shoot me a DM to find out the answer.', 'This is me and my girlfriend of 5 years. As much as I hate to admit it, ' + 'she has succeeded in turning me into a self-respecting adult. ' + 'I did not see that one coming.']
+      descriptionList: ['This is me with my friend; Hobbes the Tiger. ' + 'We share similar passions of adventuring, good meals, and algorithm puzzles. ' + 'We do not share tail-mustache humor.', 'You might be asking; "Why is he holding Ugandan gin in one hand, ' + 'a large rock in the other, and wearing a zebra shirt?" ' + 'That\'s a good question. Shoot me a DM to find out the answer.', 'This is me and my girlfriend of 5 years. As much as I hate to admit it, ' + 'she has succeeded in turning me into a self-respecting adult. ' + 'I did not see that one coming.']
     };
 
     _this.changePicture = _this.changePicture.bind(_this);
@@ -23918,8 +23937,18 @@ var Intro = function (_React$Component) {
         ),
         _react2.default.createElement(
           'div',
-          { className: 'circular-frame' },
-          _react2.default.createElement('img', { id: this.state.picIDList[this.state.picLocation], src: this.state.sourceList[this.state.picLocation] })
+          { className: 'carousel' },
+          _react2.default.createElement('img', { className: 'arrow', onClick: function onClick() {
+              _this2.changePicture('left');
+            }, src: './styles/leftArrow.svg.png' }),
+          _react2.default.createElement(
+            'div',
+            { className: 'circular-frame' },
+            _react2.default.createElement('img', { id: this.state.picIDList[this.state.picLocation], src: this.state.sourceList[this.state.picLocation] })
+          ),
+          _react2.default.createElement('img', { className: 'arrow', onClick: function onClick() {
+              _this2.changePicture('right');
+            }, src: './styles/rightArrow.svg.png' })
         ),
         _react2.default.createElement(
           'div',

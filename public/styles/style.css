@@ -5,14 +5,37 @@ html, body {
   font-family: sans-serif;
 }
 
+.arrow {
+  display: inline;
+  position: relative;
+  vertical-align: middle;
+  max-width: 50px;
+  max-height: 50px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.arrow:hover {
+  background-color: rgba(0, 64, 255, 0.26);
+  cursor: pointer;
+}
+
+.carousel {
+  width: fit-content;
+  align-items: center;
+  margin: auto;
+  position: relative;
+  vertical-align: middle;
+}
+
 .circular-frame {
+  display: inline-block;
   position: relative;
   width: 350px;
   height: 350px;
   overflow: hidden;
   border-radius: 50%;
-  margin: auto;
-  
+  margin: auto; 
 }
 
 .greeting {
@@ -33,6 +56,46 @@ html, body {
   height: 100%;
 }
 
+.links {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 70px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.links:hover {
+  background-color: rgba(0, 64, 255, 0.26);
+  cursor: pointer;
+}
+
+.Menu {
+  background-color: #F0F0F0;
+  height: 70px;
+  width: 100%;
+}
+
+.menu-bar {
+  width: fit-content;
+  height: 100%;
+  margin: auto;
+  vertical-align: middle;
+}
+
+.main {
+  background-color: #7D7D8D;
+  background-image: 
+  linear-gradient(
+    to right,
+    white,
+    rgb(212, 212, 214),
+    white
+    );
+    width: 100%;
+    height: fit-content;
+  }
+  
 .pic-blurb {
   position: relative;
   text-align: center;
@@ -44,25 +107,6 @@ html, body {
   border-bottom: 2px solid black;
   border-radius: 4px;
   padding: 2px;
-}
-
-.Menu {
-  background-color: #F0F0F0;
-  height: 70px;
-  width: 100%;
-}
-
-.main {
-  background-color: #7D7D8D;
-  background-image: 
-    linear-gradient(
-      to right,
-      white,
-      rgb(212, 212, 214),
-      white
-    );
-  width: 100%;
-  height: fit-content;
 }
 
 #tiger {
