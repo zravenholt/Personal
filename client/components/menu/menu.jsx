@@ -1,8 +1,6 @@
 import React from 'react';
-import Menu from './menu/menu.jsx';
-import Main from './main/main.jsx';
 
-class App extends React.Component {
+class Menu extends React.Component {
   constructor (props) {
     super(props);
 
@@ -15,11 +13,10 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <Menu />
-        <Main />
+        <div className='Menu'>Menu</div>
       </div>
     );
   }
 }
 
-export default App;
+export default Menu;

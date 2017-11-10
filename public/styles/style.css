@@ -1,0 +1,78 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+.circular-frame {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: auto;
+  
+}
+
+.greeting {
+  width: fit-content;
+  margin: auto;
+  padding-bottom: 25px;
+  padding-top: 25px;
+  position: relative;
+  text-align: center;
+}
+
+.intro {
+  width: 100%;
+}
+
+#katie {
+  width: auto;
+  height: 100%;
+}
+
+.pic-blurb {
+  position: relative;
+  text-align: center;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.Menu {
+  background-color: #F0F0F0;
+  height: 70px;
+  width: 100%;
+}
+
+.main {
+  background-color: #7D7D8D;
+  background-image: 
+    linear-gradient(
+      to right,
+      white,
+      rgb(212, 212, 214),
+      white
+    );
+  width: 100%;
+  height: fit-content;
+}
+
+#tiger {
+  width: auto;
+  height: 100%;
+  margin-left: -25%;
+}
+
+#ugandan {
+  width: auto;
+  height: 100%;
+  margin-left: -25%;
+}
