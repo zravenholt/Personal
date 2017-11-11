@@ -13,11 +13,13 @@ class Menu extends React.Component {
   render () {
     return (
       <div className='Menu'>
-        <div className='menu-bar'>
-          <div className='links'>Photos</div>
-          <div className='links'>About me</div>
-          <div className='links'>Projects</div>
-          <div className='links'>Contact Info</div>
+        <div className='menu-holder'>
+          <div className='menu-bar'>
+            <div className='links' id='photos-link'>Photos</div>
+            <div className='links' id='about-link'>About me</div>
+            <div className='links'>Projects</div>
+            <div className='links'>Contact Info</div>
+          </div>
         </div>
       </div>
     );

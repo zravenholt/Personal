@@ -23763,26 +23763,30 @@ var Menu = function (_React$Component) {
         { className: 'Menu' },
         _react2.default.createElement(
           'div',
-          { className: 'menu-bar' },
+          { className: 'menu-holder' },
           _react2.default.createElement(
             'div',
-            { className: 'links' },
-            'Photos'
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'links' },
-            'About me'
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'links' },
-            'Projects'
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'links' },
-            'Contact Info'
+            { className: 'menu-bar' },
+            _react2.default.createElement(
+              'div',
+              { className: 'links', id: 'photos-link' },
+              'Photos'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'links', id: 'about-link' },
+              'About me'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'links' },
+              'Projects'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'links' },
+              'Contact Info'
+            )
           )
         )
       );
@@ -24013,7 +24017,35 @@ var About = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'about' },
-        'hello from about'
+        _react2.default.createElement(
+          'h1',
+          { className: 'greeting' },
+          'Here\'s a little more about me:'
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'about-bar' },
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'div',
+              { className: 'about-selection' },
+              'Education'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'about-selection' },
+              'Hobbies'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'about-selection' },
+              'Travel'
+            )
+          ),
+          _react2.default.createElement('div', { className: 'about-bar-images' })
+        )
       );
     }
   }]);

@@ -15,7 +15,15 @@ class About extends React.Component {
   render () {
     return (
       <div className='about'>
-        hello from about
+        <h1 className='greeting'>Here's a little more about me:</h1>
+        <div className='about-bar'>
+          <div>
+            <div className='about-selection'>Education</div>
+            <div className='about-selection'>Hobbies</div>
+            <div className='about-selection'>Travel</div>
+          </div>
+          <div className='about-bar-images'></div>
+        </div>
       </div>
     );
   }
