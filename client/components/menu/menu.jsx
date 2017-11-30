@@ -17,8 +17,8 @@ class Menu extends React.Component {
           <div className='menu-bar'>
             <div className='links' id='photos-link'>Photos</div>
             <div className='links' id='about-link'>About me</div>
-            <div className='links'>Projects</div>
-            <div className='links'>Contact Info</div>
+            <div className='links' id='projects-link'>Projects</div>
+            <div className='links' id='contact-link'>Contact Info</div>
           </div>
         </div>
       </div>
