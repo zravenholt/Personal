@@ -36456,7 +36456,7 @@ var Menu = function (_React$Component) {
             _react2.default.createElement(
               'div',
               { className: 'links' },
-              'About me'
+              'About Me'
             ),
             _react2.default.createElement(
               'div',
@@ -47030,7 +47030,7 @@ var WorldMap = function (_React$Component) {
 
         var countries = ['USA', 'CAN', 'GBR', 'FRA', 'BEL', 'NLD', 'DEU', 'DNK', 'CZE', 'AUT', 'SVK', 'SVN', 'HRV', 'BIH', 'ITA', 'GRC', 'ARE', 'IND', 'NPL', 'THA', 'KHM', 'IDN', 'GTM', 'BLZ', 'HND', 'SLV', 'NIC', 'CRI', 'PAN', 'ECU', 'PER', 'BOL', 'ARG', 'URY', 'BRA', 'PRY', 'CHL', 'UGA', 'ESP', 'MEX', 'LAO', 'VNM', 'JPN'];
 
-        var visitable = ['CHN', 'AUS', 'NZL', 'ZAF', 'EGY', 'MDG', 'CUB', 'MAR', 'TZA', 'NOR', 'SWE', 'IRL', 'PHL', 'JAM', 'ISR'];
+        var visitable = ['CHN', 'AUS', 'NZL', 'ZAF', 'EGY', 'MDG', 'CUB', 'MAR', 'TZA', 'NOR', 'SWE', 'IRL', 'PHL', 'JAM', 'ISR', 'COL'];
 
         var countryIndex = 0;
         var visitableIndex = 0;
@@ -47078,7 +47078,7 @@ var WorldMap = function (_React$Component) {
             _react2.default.createElement(
               'div',
               null,
-              'Traveling is a lifelong passion of mine. I hope to one day explore the world and beyond. Here, you can see the countries I have explored (in the order I saw them).'
+              'Traveling is a lifelong passion of mine. I hope to one day explore the entire world and beyond. Here, you can see the countries I have explored (in the order I saw them!).'
             )
           ),
           _react2.default.createElement(

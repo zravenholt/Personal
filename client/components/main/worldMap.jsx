@@ -53,7 +53,8 @@ class WorldMap extends React.Component {
       let visitable = [
         'CHN', 'AUS', 'NZL', 'ZAF', 'EGY',
         'MDG', 'CUB', 'MAR', 'TZA', 'NOR',
-        'SWE', 'IRL', 'PHL', 'JAM', 'ISR'
+        'SWE', 'IRL', 'PHL', 'JAM', 'ISR',
+        'COL',
       ];
 
       let countryIndex = 0;
@@ -101,8 +102,8 @@ class WorldMap extends React.Component {
       <div className='map-holder'>
         <div>
           <div className='map-blurb'>
-            <div>Traveling is a lifelong passion of mine. I hope to one day explore the world and beyond.
-                  Here, you can see the countries I have explored (in the order I saw them).
+            <div>Traveling is a lifelong passion of mine. I hope to one day explore the entire world and beyond.
+                  Here, you can see the countries I have explored (in the order I saw them!).
             </div>
           </div>
           <div>
