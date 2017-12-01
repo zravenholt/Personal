@@ -53,6 +53,12 @@ html, body {
   box-shadow: inset 0px 0px 17px 0px rgba(0, 0, 0, 0.50);
 }
 
+.accomplishment {
+  padding-bottom: 5px;
+  padding-top: 5px;
+  font-size: 15px;
+}
+
 .arrow {
   display: inline;
   position: relative;
@@ -84,6 +90,10 @@ html, body {
   overflow: hidden;
   border-radius: 50%;
   margin: auto; 
+}
+
+.education {
+  height: 500px;
 }
 
  .hoverinfo {
@@ -204,6 +214,23 @@ html, body {
   border-bottom: 2px solid black;
   border-radius: 4px;
   padding: 2px;
+}
+
+.school {
+  height: 100%;
+  width: 33.3%;
+  position: relative;
+}
+
+.school-accomplishments {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.school-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #tiger {

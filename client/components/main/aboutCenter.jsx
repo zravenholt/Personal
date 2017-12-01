@@ -1,6 +1,7 @@
 import React from 'react';
 import Datamap from 'datamaps';
 import WorldMap from './worldMap.jsx';
+import Education from './education/education.jsx';
 
 class AboutCenter extends React.Component {
   constructor (props) {
@@ -20,6 +21,10 @@ class AboutCenter extends React.Component {
     } else if (this.props.target === 'travel') {
       return (<div>
         <WorldMap />
+      </div>);
+    } else if (this.props.target === 'education') {
+      return (<div>
+        <Education />
       </div>);
     }
     return body;

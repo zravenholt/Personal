@@ -36789,6 +36789,10 @@ var _worldMap = __webpack_require__(200);
 
 var _worldMap2 = _interopRequireDefault(_worldMap);
 
+var _education = __webpack_require__(201);
+
+var _education2 = _interopRequireDefault(_education);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -36825,6 +36829,12 @@ var AboutCenter = function (_React$Component) {
           'div',
           null,
           _react2.default.createElement(_worldMap2.default, null)
+        );
+      } else if (this.props.target === 'education') {
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(_education2.default, null)
         );
       }
       return body;
@@ -47120,6 +47130,144 @@ var WorldMap = function (_React$Component) {
 
 exports.default = WorldMap;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
+
+/***/ }),
+/* 201 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(14);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _highSchool = __webpack_require__(202);
+
+var _highSchool2 = _interopRequireDefault(_highSchool);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// import College from './college.jsx';
+// import Coding from './coding.jsx';
+
+var Education = function (_React$Component) {
+  _inherits(Education, _React$Component);
+
+  function Education(props) {
+    _classCallCheck(this, Education);
+
+    var _this = _possibleConstructorReturn(this, (Education.__proto__ || Object.getPrototypeOf(Education)).call(this, props));
+
+    _this.state = {};
+
+    return _this;
+  }
+
+  _createClass(Education, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'education' },
+        _react2.default.createElement(_highSchool2.default, null)
+      );
+    }
+  }]);
+
+  return Education;
+}(_react2.default.Component);
+
+exports.default = Education;
+
+/***/ }),
+/* 202 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(14);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var School = function (_React$Component) {
+  _inherits(School, _React$Component);
+
+  function School(props) {
+    _classCallCheck(this, School);
+
+    var _this = _possibleConstructorReturn(this, (School.__proto__ || Object.getPrototypeOf(School)).call(this, props));
+
+    _this.state = {
+      schoolAccomplishments: ['4.0 GPA', 'ASB President', '9 AP classes', '3 season athlete (Cross Country, Basketball, Track)', 'Team captain of Basketball, Track']
+    };
+
+    return _this;
+  }
+
+  _createClass(School, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'school' },
+        _react2.default.createElement('img', { className: 'school-logo', src: './styles/Kingston-HS.png' }),
+        _react2.default.createElement(
+          'a',
+          { href: 'http://khs.nkschools.org/' },
+          'Kingston High School'
+        ),
+        _react2.default.createElement(
+          'ul',
+          { className: 'school-accomplishments' },
+          this.state.schoolAccomplishments.map(function (item, i) {
+            return _react2.default.createElement(
+              'li',
+              { key: i, className: 'accomplishment' },
+              item
+            );
+          })
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'education-blurb' },
+          'My local, small-town high school. Here I learned the basics of knowledge, but also learned that hard work pays off in the end.'
+        )
+      );
+    }
+  }]);
+
+  return School;
+}(_react2.default.Component);
+
+exports.default = School;
 
 /***/ })
 /******/ ]);
