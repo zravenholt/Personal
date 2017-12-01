@@ -16,7 +16,7 @@ class AboutCenter extends React.Component {
   render () {
     let body = <div></div>;
     if (this.props.target === null) {
-      body = (<div id='waiting-for-select'>Please select a field to learn more about me!</div>);
+      body = (<div id='waiting-for-select'>Select a field to learn more about me!</div>);
     } else if (this.props.target === 'travel') {
       return (<div>
         <WorldMap />

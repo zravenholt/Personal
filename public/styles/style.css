@@ -11,6 +11,18 @@ html, body {
 }
 
 .about-bar {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: rgb(79, 79, 187);
+  text-align: center;
+}
+
+.about-center {
   width: 70%;
   margin-left: auto;
   margin-right: auto;
@@ -23,6 +35,7 @@ html, body {
 }
 
 .about-selection {
+  color: white;
   display: inline-block;
   padding-left: 10%;
   padding-right: 10%;
@@ -30,9 +43,14 @@ html, body {
   padding-bottom: 15px;
 }
 
+
+
 .about-selection:hover {
-  background-color: rgba(0, 255, 42, 0.26);  
   cursor: pointer;
+  background-color: #283D82;
+  -webkit-box-shadow: inset 0px 0px 17px 0px rgba(0,0,0,0.50);
+  -moz-box-shadow: inset 0px 0px 17px 0px rgba(0,0,0,0.50);
+  box-shadow: inset 0px 0px 17px 0px rgba(0, 0, 0, 0.50);
 }
 
 .arrow {
@@ -91,6 +109,38 @@ html, body {
   height: 100%;
 }
 
+.legend {
+  margin: auto;
+  margin-top: 10px;
+  width: 30%;
+}
+
+.legend-icons {
+  float: left;
+  padding-left: 10%;
+}
+
+.legend-texts {
+  text-align: left;
+  padding-top: 3px;
+}
+
+.legend-icon {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+#explored {
+  background-color: rgb(247, 33, 159)
+}
+
+#next {
+  background-color: rgb(254, 218, 90)
+}
+
 .links {
   display: inline-block;
   text-align: center;
@@ -110,6 +160,12 @@ html, body {
 
 .map-holder {
   position: relative;
+}
+
+.map-blurb {
+  margin: auto;
+  width: 85%;
+  font-size: 25px;
 }
 
 .Menu {
@@ -163,7 +219,11 @@ html, body {
 }
 
 #waiting-for-select {
-  height: 400px;
+  font-size: 35px;
+  color: #6A6A6A;
+  height: 500px;
+  line-height: 500px;
+  text-align: center;
 }
 
 #world-map {

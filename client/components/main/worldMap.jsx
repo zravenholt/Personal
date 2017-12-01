@@ -31,9 +31,6 @@ class WorldMap extends React.Component {
           defaultFill: '#ABDDA4',
           authorHasTraveledTo: '#fa0fa0',
           authorWantsToTravelTo: '#ffdb4d'
-        },
-        data: {
-          USA: { fillKey: 'authorHasTraveledTo' }
         }
       });
       this.setState({
@@ -76,7 +73,6 @@ class WorldMap extends React.Component {
       };
 
       let populateMap = () => {
-        console.log(countryIndex);
         let name = countries[countryIndex];
         map.updateChoropleth({
           [name]: { fillKey: 'authorHasTraveledTo' }
@@ -103,6 +99,25 @@ class WorldMap extends React.Component {
 
     return (
       <div className='map-holder'>
+        <div>
+          <div className='map-blurb'>
+            <div>Traveling is a lifelong passion of mine. I hope to one day explore the world and beyond.
+                  Here, you can see the countries I have explored (in the order I saw them).
+            </div>
+          </div>
+          <div>
+            <div className='legend'>
+              <div className='legend-icons'>
+                <div className='legend-icon' id='explored'></div>
+                <div className='legend-icon' id='next'></div>
+              </div>
+              <div className='legend-texts'>
+                <div className='legend-text'>: Explored!</div>
+                <div className='legend-text'>: Next on my wishlist</div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div id='world-map'></div>
       </div>
     );

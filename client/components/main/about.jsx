@@ -32,7 +32,7 @@ class About extends React.Component {
             <div className='about-selection' onClick={() => { this.changeCenter('travel'); }}>Travel</div>
           </div>
         </div>
-        <div className='about-bar'>
+        <div className='about-center'>
           <AboutCenter target={this.state.aboutCenter}/>
         </div>
       </div>

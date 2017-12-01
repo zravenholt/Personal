@@ -36751,7 +36751,7 @@ var About = function (_React$Component) {
         ),
         _react2.default.createElement(
           'div',
-          { className: 'about-bar' },
+          { className: 'about-center' },
           _react2.default.createElement(_aboutCenter2.default, { target: this.state.aboutCenter })
         )
       );
@@ -36818,7 +36818,7 @@ var AboutCenter = function (_React$Component) {
         body = _react2.default.createElement(
           'div',
           { id: 'waiting-for-select' },
-          'Please select a field to learn more about me!'
+          'Select a field to learn more about me!'
         );
       } else if (this.props.target === 'travel') {
         return _react2.default.createElement(
@@ -47021,9 +47021,6 @@ var WorldMap = function (_React$Component) {
             defaultFill: '#ABDDA4',
             authorHasTraveledTo: '#fa0fa0',
             authorWantsToTravelTo: '#ffdb4d'
-          },
-          data: {
-            USA: { fillKey: 'authorHasTraveledTo' }
           }
         });
         this.setState({
@@ -47050,7 +47047,6 @@ var WorldMap = function (_React$Component) {
         };
 
         var populateMap = function populateMap() {
-          console.log(countryIndex);
           var name = countries[countryIndex];
           map.updateChoropleth(_defineProperty({}, name, { fillKey: 'authorHasTraveledTo' }));
           countryIndex++;
@@ -47073,6 +47069,47 @@ var WorldMap = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'map-holder' },
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'div',
+            { className: 'map-blurb' },
+            _react2.default.createElement(
+              'div',
+              null,
+              'Traveling is a lifelong passion of mine. I hope to one day explore the world and beyond. Here, you can see the countries I have explored (in the order I saw them).'
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'div',
+              { className: 'legend' },
+              _react2.default.createElement(
+                'div',
+                { className: 'legend-icons' },
+                _react2.default.createElement('div', { className: 'legend-icon', id: 'explored' }),
+                _react2.default.createElement('div', { className: 'legend-icon', id: 'next' })
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'legend-texts' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'legend-text' },
+                  ': Explored!'
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'legend-text' },
+                  ': Next on my wishlist'
+                )
+              )
+            )
+          )
+        ),
         _react2.default.createElement('div', { id: 'world-map' })
       );
     }
