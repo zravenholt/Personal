@@ -24,7 +24,7 @@ class AboutCenter extends React.Component {
       </div>);
     } else if (this.props.target === 'education') {
       return (<div>
-        <Education />
+        <Education selected={null}/>
       </div>);
     }
     return body;
