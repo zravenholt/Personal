@@ -47171,7 +47171,9 @@ var Education = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Education.__proto__ || Object.getPrototypeOf(Education)).call(this, props));
 
-    _this.state = {};
+    _this.state = {
+      selected: null
+    };
 
     return _this;
   }
@@ -47179,6 +47181,59 @@ var Education = function (_React$Component) {
   _createClass(Education, [{
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
+      if (this.state.selected === null) {
+        return _react2.default.createElement(
+          'div',
+          { className: 'education' },
+          _react2.default.createElement(
+            'div',
+            { id: 'tile-select' },
+            'Select a tile to learn more'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'tile-holder' },
+            _react2.default.createElement(
+              'div',
+              { className: 'tile', onClick: function onClick() {
+                  _this2.setState({ selected: 'school' });
+                } },
+              _react2.default.createElement('img', { className: 'tile-image', src: './styles/Kingston-HS.png' }),
+              _react2.default.createElement(
+                'div',
+                null,
+                'Kingston High School'
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'tile', onClick: function onClick() {
+                  _this2.setState({ selected: 'college' });
+                } },
+              _react2.default.createElement('img', { className: 'tile-image', src: './styles/Claremont_Mckenna_College_Seal.png' }),
+              _react2.default.createElement(
+                'div',
+                null,
+                'Claremont McKenna College'
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'tile', onClick: function onClick() {
+                  _this2.setState({ selected: 'coding' });
+                } },
+              _react2.default.createElement('img', { className: 'tile-image', src: './styles/hack-reactor-logo.png' }),
+              _react2.default.createElement(
+                'div',
+                null,
+                'Hack Reactor'
+              )
+            )
+          )
+        );
+      }
       return _react2.default.createElement(
         'div',
         { className: 'education' },

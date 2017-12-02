@@ -233,6 +233,33 @@ html, body {
   margin-right: auto;
 }
 
+.tile-holder {
+  height: 50%;
+  width: 100%;
+}
+
+.tile {
+  margin: auto;
+  display: inline-block;
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: #AEAEAE;
+  padding: 5px;
+  -webkit-box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.75);
+}
+
+.tile-image {
+  height: 100px;
+  width: 100px;
+}
+
+#tile-select {
+  margin-top: 15px;
+  margin-bottom: 15%;
+}
+
 #tiger {
   width: auto;
   height: 100%;

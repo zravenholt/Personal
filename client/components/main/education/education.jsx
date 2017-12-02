@@ -8,7 +8,7 @@ class Education extends React.Component {
     super(props);
 
     this.state = {
-
+      selected: null
     };
 
   }
@@ -16,6 +16,27 @@ class Education extends React.Component {
   
 
   render () {
+    if (this.state.selected === null) {
+      return (
+        <div className='education'>
+          <div id='tile-select'>Select a tile to learn more</div>
+          <div className='tile-holder'>
+            <div className='tile' onClick={() => { this.setState({selected: 'school'}); }}>
+              <img className='tile-image' src='./styles/Kingston-HS.png' />
+              <div>Kingston High School</div>
+            </div>
+            <div className='tile' onClick={() => { this.setState({selected: 'college'}); }}>
+              <img className='tile-image' src='./styles/Claremont_Mckenna_College_Seal.png' />
+              <div>Claremont McKenna College</div>
+            </div>
+            <div className='tile' onClick={() => { this.setState({selected: 'coding'}); }}>
+              <img className='tile-image' src='./styles/hack-reactor-logo.png' />
+              <div>Hack Reactor</div>
+            </div>
+          </div>
+        </div>
+      );
+    }
     return (
       <div className='education'>
         <School />
