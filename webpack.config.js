@@ -1,8 +1,16 @@
+var webpack = require('webpack');
 const path = require('path');
 
 var config = {
   devtool: 'source-map',
   entry: path.join(__dirname, './client/index.js'),
+
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
+    })
+  ],
 	
   output: {
     path: path.join(__dirname, 'bundles'),
