@@ -47148,9 +47148,9 @@ var _react = __webpack_require__(11);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _highSchool = __webpack_require__(202);
+var _selectedEducation = __webpack_require__(204);
 
-var _highSchool2 = _interopRequireDefault(_highSchool);
+var _selectedEducation2 = _interopRequireDefault(_selectedEducation);
 
 var _jquery = __webpack_require__(203);
 
@@ -47182,6 +47182,7 @@ var Education = function (_React$Component) {
     };
 
     _this.selectSchool = _this.selectSchool.bind(_this);
+    _this.return = _this.return.bind(_this);
 
     return _this;
   }
@@ -47191,17 +47192,20 @@ var Education = function (_React$Component) {
     value: function selectSchool() {
       var _this2 = this;
 
-      console.log((0, _jquery2.default)().fadeOut);
       var school = (0, _reactDom.findDOMNode)(this.refs.school);
       var college = (0, _reactDom.findDOMNode)(this.refs.college);
       var coding = (0, _reactDom.findDOMNode)(this.refs.coding);
 
-      (0, _jquery2.default)(college, coding).fadeOut(500).promise().done(function () {
+      (0, _jquery2.default)(college).add(coding).fadeOut(500).promise().done(function () {
         console.log('done jquery triggered');
         _this2.setState({ selected: 'school' });
         //run jquery on click in html
       });
-      console.log('triggered');
+    }
+  }, {
+    key: 'return',
+    value: function _return() {
+      this.setState({ selected: null });
     }
   }, {
     key: 'render',
@@ -47253,13 +47257,6 @@ var Education = function (_React$Component) {
                 null,
                 'Hack Reactor Program'
               )
-            ),
-            _react2.default.createElement(
-              'script',
-              null,
-              (0, _jquery2.default)('#school-tile').click(function () {
-                console.log('jquery school click');
-              })
             )
           )
         );
@@ -47267,7 +47264,7 @@ var Education = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'education' },
-        _react2.default.createElement(_highSchool2.default, null)
+        _react2.default.createElement(_selectedEducation2.default, { selected: this.state.selected, 'return': this.return.bind(this) })
       );
     }
   }]);
@@ -47279,83 +47276,7 @@ exports.default = Education;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ }),
-/* 202 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(11);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var School = function (_React$Component) {
-  _inherits(School, _React$Component);
-
-  function School(props) {
-    _classCallCheck(this, School);
-
-    var _this = _possibleConstructorReturn(this, (School.__proto__ || Object.getPrototypeOf(School)).call(this, props));
-
-    _this.state = {
-      schoolAccomplishments: ['4.0 GPA', 'ASB President', '9 AP classes', '3 season athlete (Cross Country, Basketball, Track)', 'Team captain of Basketball, Track']
-    };
-
-    return _this;
-  }
-
-  _createClass(School, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { className: 'school' },
-        _react2.default.createElement('img', { className: 'school-logo', src: './styles/Kingston-HS.png' }),
-        _react2.default.createElement(
-          'a',
-          { href: 'http://khs.nkschools.org/' },
-          'Kingston High School'
-        ),
-        _react2.default.createElement(
-          'ul',
-          { className: 'school-accomplishments' },
-          this.state.schoolAccomplishments.map(function (item, i) {
-            return _react2.default.createElement(
-              'li',
-              { key: i, className: 'accomplishment' },
-              item
-            );
-          })
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'education-blurb' },
-          'My local, small-town high school. Here I learned the basics of knowledge, but also learned that hard work pays off in the end.'
-        )
-      );
-    }
-  }]);
-
-  return School;
-}(_react2.default.Component);
-
-exports.default = School;
-
-/***/ }),
+/* 202 */,
 /* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -57614,6 +57535,135 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
+
+/***/ }),
+/* 204 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(console) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(11);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SelectedEducation = function (_React$Component) {
+  _inherits(SelectedEducation, _React$Component);
+
+  function SelectedEducation(props) {
+    _classCallCheck(this, SelectedEducation);
+
+    var _this = _possibleConstructorReturn(this, (SelectedEducation.__proto__ || Object.getPrototypeOf(SelectedEducation)).call(this, props));
+
+    _this.state = {
+      accomplishments: [],
+      pictureSrc: '',
+      titleRef: '',
+      title: ''
+    };
+
+    _this.schoolPopulate = _this.schoolPopulate.bind(_this);
+    _this.collegePopulate = _this.collegePopulate.bind(_this);
+    _this.codingPopulate = _this.codingPopulate.bind(_this);
+    return _this;
+  }
+
+  _createClass(SelectedEducation, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      console.log('selected will mount');
+      if (this.props.selected === 'school') {
+        this.schoolPopulate();
+      } else if (this.props.selected === 'college') {
+        this.collegePopulate();
+      } else if (this.props.selected === 'coding') {
+        this.codingPopulate();
+      }
+    }
+  }, {
+    key: 'schoolPopulate',
+    value: function schoolPopulate() {
+      console.log('school selected populate');
+      this.setState({
+        accomplishments: ['4.0 GPA', 'ASB President', '9 AP classes', '3 season athlete (Cross Country, Basketball, Track)', 'Team captain of Basketball, Track'],
+        pictureSrc: './styles/Kingston-HS.png',
+        titleRef: 'http://khs.nkschools.org/',
+        title: 'Kingston High School'
+      });
+    }
+  }, {
+    key: 'collegePopulate',
+    value: function collegePopulate() {
+      this.setState({
+        accomplishments: ['Major: Science and Management', '  -- Neuroscience Focus', 'Thesis: Effect of Brain Lesions on Zebra Finch Vocals', '  -- Performed brain surgery on finches and observed vocal patterns', 'Involved with many on campus clubs and intramural sports'],
+        pictureSrc: './styles/Claremont_Mckenna_College_Seal.png',
+        titleRef: 'https://www.cmc.edu/',
+        title: 'Claremont McKenna College'
+
+      });
+    }
+  }, {
+    key: 'codingPopulate',
+    value: function codingPopulate() {
+      this.setState({
+        accomplishments: ['Advanced and immersive full-stack software course', '80 hours per week of learning over 12+ weeks, 1,000 total hours', 'First half focused on computer science knowledge', '  -- Algorithms, domain knowledge, Javascript fundamentals, frameworks', 'Second half focused on creating real world applications', '  -- Varied tech stacks, deployment, agile work environment', 'Tech: React/Redux, Angular, webpack, express/node, SQL,', 'jQuery, D3, Git, AWS, Redis'],
+        pictureSrc: './styles/hack-reactor-logo.png',
+        titleRef: 'https://www.hackreactor.com/',
+        title: 'Hack Reactor Program'
+
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'school' },
+        _react2.default.createElement('img', { className: 'school-logo', src: this.state.pictureSrc }),
+        _react2.default.createElement(
+          'a',
+          { href: this.state.titleRef },
+          this.state.title
+        ),
+        _react2.default.createElement(
+          'ul',
+          { className: 'school-accomplishments' },
+          this.state.accomplishments.map(function (item, i) {
+            return _react2.default.createElement(
+              'li',
+              { key: i, className: 'accomplishment' },
+              item
+            );
+          })
+        ),
+        _react2.default.createElement(
+          'button',
+          { onClick: this.props.return },
+          'Click here to go back'
+        )
+      );
+    }
+  }]);
+
+  return SelectedEducation;
+}(_react2.default.Component);
+
+exports.default = SelectedEducation;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ })
 /******/ ]);

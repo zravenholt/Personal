@@ -1,5 +1,5 @@
 import React from 'react';
-import School from './highSchool.jsx';
+import SelectedEducation from './selectedEducation.jsx';
 import $ from 'jquery';
 import {findDOMNode} from 'react-dom';
 // import College from './college.jsx';
@@ -14,21 +14,24 @@ class Education extends React.Component {
     };
 
     this.selectSchool = this.selectSchool.bind(this);
+    this.return = this.return.bind(this);
 
   }
 
   selectSchool () {
-    console.log($().fadeOut);
     let school = findDOMNode(this.refs.school);
     let college = findDOMNode(this.refs.college);
     let coding = findDOMNode(this.refs.coding);
 
-    $(college, coding).fadeOut(500).promise().done(() => {
+    $(college).add(coding).fadeOut(500).promise().done(() => {
       console.log('done jquery triggered');
       this.setState({selected: 'school'});
         //run jquery on click in html
     });
-    console.log('triggered');
+  }
+
+  return () {
+    this.setState({selected: null});
   }
 
   
@@ -51,20 +54,13 @@ class Education extends React.Component {
               <img className='tile-image' src='./styles/hack-reactor-logo.png' />
               <div>Hack Reactor Program</div>
             </div>
-            <script>
-              {$('#school-tile').click(() => {
-                console.log('jquery school click');
-              })}
-            </script>
           </div>
         </div>
       );
     }
     return (
       <div className='education'>
-        <School />
-        {/* <College />
-        <Coding /> */}
+        <SelectedEducation selected={this.state.selected} return={this.return.bind(this)}/>
       </div>
     );
   }
