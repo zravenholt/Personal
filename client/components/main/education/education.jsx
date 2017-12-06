@@ -2,8 +2,6 @@ import React from 'react';
 import SelectedEducation from './selectedEducation.jsx';
 import $ from 'jquery';
 import {findDOMNode} from 'react-dom';
-// import College from './college.jsx';
-// import Coding from './coding.jsx';
 
 class Education extends React.Component {
   constructor (props) {
@@ -13,21 +11,29 @@ class Education extends React.Component {
       selected: this.props.selected
     };
 
-    this.selectSchool = this.selectSchool.bind(this);
+    this.selectEducation = this.selectEducation.bind(this);
     this.return = this.return.bind(this);
 
   }
 
-  selectSchool () {
+  selectEducation (selected) {
     let school = findDOMNode(this.refs.school);
     let college = findDOMNode(this.refs.college);
     let coding = findDOMNode(this.refs.coding);
 
-    $(college).add(coding).fadeOut(500).promise().done(() => {
-      console.log('done jquery triggered');
-      this.setState({selected: 'school'});
-        //run jquery on click in html
-    });
+    if (selected === 'school') {
+      $(college).add(coding).fadeOut(500).promise().done(() => {
+        this.setState({selected: 'school'});
+      });
+    } else if (selected === 'college') {
+      $(school).add(coding).fadeOut(500).promise().done(() => {
+        this.setState({selected: 'college'});
+      });
+    } else {
+      $(school).add(college).fadeOut(500).promise().done(() => {
+        this.setState({selected: 'coding'});
+      });
+    }
   }
 
   return () {
@@ -42,15 +48,15 @@ class Education extends React.Component {
         <div className='education'>
           <div id='tile-select'>Select a tile to learn more</div>
           <div className='tile-holder'>
-            <div className='tile' id='school-tile' ref='school' onClick={this.selectSchool}>
+            <div className='tile' id='school-tile' ref='school' onClick={() => { this.selectEducation('school'); }}>
               <img className='tile-image' src='./styles/Kingston-HS.png' />
               <div>Kingston High School</div>
             </div>
-            <div className='tile' id='college-tile' ref='college' onClick={() => { this.setState({selected: 'college'}); }}>
+            <div className='tile' id='college-tile' ref='college' onClick={() => { this.selectEducation('college'); }}>
               <img className='tile-image' src='./styles/Claremont_Mckenna_College_Seal.png' />
               <div>Claremont McKenna College</div>
             </div>
-            <div className='tile' id='coding-tile' ref='coding' onClick={() => { this.setState({selected: 'coding'}); }}>
+            <div className='tile' id='coding-tile' ref='coding' onClick={() => { this.selectEducation('coding'); }}>
               <img className='tile-image' src='./styles/hack-reactor-logo.png' />
               <div>Hack Reactor Program</div>
             </div>

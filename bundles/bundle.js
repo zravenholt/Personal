@@ -47136,7 +47136,7 @@ exports.default = WorldMap;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(console) {
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -47166,9 +47166,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// import College from './college.jsx';
-// import Coding from './coding.jsx';
-
 var Education = function (_React$Component) {
   _inherits(Education, _React$Component);
 
@@ -47181,26 +47178,34 @@ var Education = function (_React$Component) {
       selected: _this.props.selected
     };
 
-    _this.selectSchool = _this.selectSchool.bind(_this);
+    _this.selectEducation = _this.selectEducation.bind(_this);
     _this.return = _this.return.bind(_this);
 
     return _this;
   }
 
   _createClass(Education, [{
-    key: 'selectSchool',
-    value: function selectSchool() {
+    key: 'selectEducation',
+    value: function selectEducation(selected) {
       var _this2 = this;
 
       var school = (0, _reactDom.findDOMNode)(this.refs.school);
       var college = (0, _reactDom.findDOMNode)(this.refs.college);
       var coding = (0, _reactDom.findDOMNode)(this.refs.coding);
 
-      (0, _jquery2.default)(college).add(coding).fadeOut(500).promise().done(function () {
-        console.log('done jquery triggered');
-        _this2.setState({ selected: 'school' });
-        //run jquery on click in html
-      });
+      if (selected === 'school') {
+        (0, _jquery2.default)(college).add(coding).fadeOut(500).promise().done(function () {
+          _this2.setState({ selected: 'school' });
+        });
+      } else if (selected === 'college') {
+        (0, _jquery2.default)(school).add(coding).fadeOut(500).promise().done(function () {
+          _this2.setState({ selected: 'college' });
+        });
+      } else {
+        (0, _jquery2.default)(school).add(college).fadeOut(500).promise().done(function () {
+          _this2.setState({ selected: 'coding' });
+        });
+      }
     }
   }, {
     key: 'return',
@@ -47226,7 +47231,9 @@ var Education = function (_React$Component) {
             { className: 'tile-holder' },
             _react2.default.createElement(
               'div',
-              { className: 'tile', id: 'school-tile', ref: 'school', onClick: this.selectSchool },
+              { className: 'tile', id: 'school-tile', ref: 'school', onClick: function onClick() {
+                  _this3.selectEducation('school');
+                } },
               _react2.default.createElement('img', { className: 'tile-image', src: './styles/Kingston-HS.png' }),
               _react2.default.createElement(
                 'div',
@@ -47237,7 +47244,7 @@ var Education = function (_React$Component) {
             _react2.default.createElement(
               'div',
               { className: 'tile', id: 'college-tile', ref: 'college', onClick: function onClick() {
-                  _this3.setState({ selected: 'college' });
+                  _this3.selectEducation('college');
                 } },
               _react2.default.createElement('img', { className: 'tile-image', src: './styles/Claremont_Mckenna_College_Seal.png' }),
               _react2.default.createElement(
@@ -47249,7 +47256,7 @@ var Education = function (_React$Component) {
             _react2.default.createElement(
               'div',
               { className: 'tile', id: 'coding-tile', ref: 'coding', onClick: function onClick() {
-                  _this3.setState({ selected: 'coding' });
+                  _this3.selectEducation('coding');
                 } },
               _react2.default.createElement('img', { className: 'tile-image', src: './styles/hack-reactor-logo.png' }),
               _react2.default.createElement(
@@ -47273,7 +47280,6 @@ var Education = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Education;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ }),
 /* 202 */,
