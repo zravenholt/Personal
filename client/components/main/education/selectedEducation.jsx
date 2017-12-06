@@ -17,7 +17,6 @@ class SelectedEducation extends React.Component {
   }
 
   componentWillMount () {
-    console.log('selected will mount');
     if (this.props.selected === 'school') {
       this.schoolPopulate();
     } else if (this.props.selected === 'college') {
@@ -28,7 +27,6 @@ class SelectedEducation extends React.Component {
   }
 
   schoolPopulate () {
-    console.log('school selected populate');
     this.setState({
       accomplishments: [
         '4.0 GPA',
@@ -50,7 +48,7 @@ class SelectedEducation extends React.Component {
         '  -- Neuroscience Focus',
         'Thesis: Effect of Brain Lesions on Zebra Finch Vocals',
         '  -- Performed brain surgery on finches and observed vocal patterns',
-        'Involved with many on campus clubs and intramural sports'
+        'Involved with many on-campus clubs and intramural sports'
       ],
       pictureSrc: './styles/Claremont_Mckenna_College_Seal.png',
       titleRef: 'https://www.cmc.edu/',
@@ -83,8 +81,14 @@ class SelectedEducation extends React.Component {
   render () {
     return (
       <div className='school'>
-        <img className='school-logo' src={this.state.pictureSrc} />
-        <a href={this.state.titleRef}>{this.state.title}</a>
+        <div className='school-data'>
+          <div className='school-picture'>
+            <img className='school-logo' src={this.state.pictureSrc} />
+          </div>
+          <div>
+            <a className='school-title'href={this.state.titleRef}>{this.state.title}</a>
+          </div>
+        </div>
         <ul className='school-accomplishments'>
           {this.state.accomplishments.map((item, i) => {
             return <li key={i} className='accomplishment'>{item}</li>;

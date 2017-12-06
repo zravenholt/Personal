@@ -218,19 +218,32 @@ html, body {
 
 .school {
   height: 100%;
-  width: 33.3%;
+  width: 100%;
   position: relative;
 }
 
 .school-accomplishments {
   list-style-type: none;
   padding-left: 0;
+  display: block;
+}
+
+.school-data {
+  height: 200px;
+}
+
+.school-picture {
+  display: inline;
 }
 
 .school-logo {
-  display: block;
+  height: 200px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.school-title {
+  display: inline;
 }
 
 .tile-holder {

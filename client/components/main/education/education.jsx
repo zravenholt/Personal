@@ -22,15 +22,18 @@ class Education extends React.Component {
     let coding = findDOMNode(this.refs.coding);
 
     if (selected === 'school') {
-      $(college).add(coding).fadeOut(600).dequeue().animate({height: '0'}, {duration: 600}).promise().done(() => {
+      $(college).add(coding).fadeOut(600).dequeue()
+      .animate({height: '0'}, {duration: 600}).promise().done(() => {
         this.setState({selected: 'school'});
       });
     } else if (selected === 'college') {
-      $(school).add(coding).fadeOut(600).dequeue().animate({height: '0'}, {duration: 600}).promise().done(() => {
+      $(school).add(coding).fadeOut(600).dequeue()
+      .animate({height: '0'}, {duration: 600}).promise().done(() => {
         this.setState({selected: 'college'});
       });
     } else {
-      $(school).add(college).fadeOut(600).dequeue().animate({height: '0'}, {duration: 600}).promise().done(() => {
+      $(school).add(college).fadeOut(600).dequeue()
+      .animate({height: '0'}, {duration: 600}).promise().done(() => {
         this.setState({selected: 'coding'});
       });
     }

@@ -13,7 +13,6 @@ class About extends React.Component {
   }
 
   changeCenter (target) {
-    console.log('center change', target);
     this.setState({
       aboutCenter: target
     });

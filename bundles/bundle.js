@@ -36659,7 +36659,7 @@ exports.default = Intro;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(console) {
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -36702,7 +36702,6 @@ var About = function (_React$Component) {
   _createClass(About, [{
     key: 'changeCenter',
     value: function changeCenter(target) {
-      console.log('center change', target);
       this.setState({
         aboutCenter: target
       });
@@ -36762,7 +36761,6 @@ var About = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = About;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ }),
 /* 197 */
@@ -57547,7 +57545,7 @@ return jQuery;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(console) {
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -57591,7 +57589,6 @@ var SelectedEducation = function (_React$Component) {
   _createClass(SelectedEducation, [{
     key: 'componentWillMount',
     value: function componentWillMount() {
-      console.log('selected will mount');
       if (this.props.selected === 'school') {
         this.schoolPopulate();
       } else if (this.props.selected === 'college') {
@@ -57603,7 +57600,6 @@ var SelectedEducation = function (_React$Component) {
   }, {
     key: 'schoolPopulate',
     value: function schoolPopulate() {
-      console.log('school selected populate');
       this.setState({
         accomplishments: ['4.0 GPA', 'ASB President', '9 AP classes', '3 season athlete (Cross Country, Basketball, Track)', 'Team captain of Basketball, Track'],
         pictureSrc: './styles/Kingston-HS.png',
@@ -57615,7 +57611,7 @@ var SelectedEducation = function (_React$Component) {
     key: 'collegePopulate',
     value: function collegePopulate() {
       this.setState({
-        accomplishments: ['Major: Science and Management', '  -- Neuroscience Focus', 'Thesis: Effect of Brain Lesions on Zebra Finch Vocals', '  -- Performed brain surgery on finches and observed vocal patterns', 'Involved with many on campus clubs and intramural sports'],
+        accomplishments: ['Major: Science and Management', '  -- Neuroscience Focus', 'Thesis: Effect of Brain Lesions on Zebra Finch Vocals', '  -- Performed brain surgery on finches and observed vocal patterns', 'Involved with many on-campus clubs and intramural sports'],
         pictureSrc: './styles/Claremont_Mckenna_College_Seal.png',
         titleRef: 'https://www.cmc.edu/',
         title: 'Claremont McKenna College'
@@ -57639,11 +57635,23 @@ var SelectedEducation = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'school' },
-        _react2.default.createElement('img', { className: 'school-logo', src: this.state.pictureSrc }),
         _react2.default.createElement(
-          'a',
-          { href: this.state.titleRef },
-          this.state.title
+          'div',
+          { className: 'school-data' },
+          _react2.default.createElement(
+            'div',
+            { className: 'school-picture' },
+            _react2.default.createElement('img', { className: 'school-logo', src: this.state.pictureSrc })
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'a',
+              { className: 'school-title', href: this.state.titleRef },
+              this.state.title
+            )
+          )
         ),
         _react2.default.createElement(
           'ul',
@@ -57669,7 +57677,6 @@ var SelectedEducation = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = SelectedEducation;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ })
 /******/ ]);
