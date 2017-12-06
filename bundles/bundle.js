@@ -47194,15 +47194,15 @@ var Education = function (_React$Component) {
       var coding = (0, _reactDom.findDOMNode)(this.refs.coding);
 
       if (selected === 'school') {
-        (0, _jquery2.default)(college).add(coding).fadeOut(500).promise().done(function () {
+        (0, _jquery2.default)(college).add(coding).fadeOut(600).dequeue().animate({ height: '0' }, { duration: 600 }).promise().done(function () {
           _this2.setState({ selected: 'school' });
         });
       } else if (selected === 'college') {
-        (0, _jquery2.default)(school).add(coding).fadeOut(500).promise().done(function () {
+        (0, _jquery2.default)(school).add(coding).fadeOut(600).dequeue().animate({ height: '0' }, { duration: 600 }).promise().done(function () {
           _this2.setState({ selected: 'college' });
         });
       } else {
-        (0, _jquery2.default)(school).add(college).fadeOut(500).promise().done(function () {
+        (0, _jquery2.default)(school).add(college).fadeOut(600).dequeue().animate({ height: '0' }, { duration: 600 }).promise().done(function () {
           _this2.setState({ selected: 'coding' });
         });
       }
