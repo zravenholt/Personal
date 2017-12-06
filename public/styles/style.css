@@ -93,7 +93,7 @@ html, body {
 }
 
 .education {
-  height: 500px;
+  min-height: 500px;
 }
 
  .hoverinfo {
