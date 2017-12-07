@@ -47177,12 +47177,24 @@ var Education = function (_React$Component) {
     };
 
     _this.selectEducation = _this.selectEducation.bind(_this);
-    _this.return = _this.return.bind(_this);
+    _this.returnBack = _this.returnBack.bind(_this);
 
     return _this;
   }
 
   _createClass(Education, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var education = (0, _reactDom.findDOMNode)(this.refs.education);
+      (0, _jquery2.default)(education).hide().fadeIn(600).promise();
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      var education = (0, _reactDom.findDOMNode)(this.refs.education);
+      (0, _jquery2.default)(education).hide().fadeIn(600).promise();
+    }
+  }, {
     key: 'selectEducation',
     value: function selectEducation(selected) {
       var _this2 = this;
@@ -47192,22 +47204,22 @@ var Education = function (_React$Component) {
       var coding = (0, _reactDom.findDOMNode)(this.refs.coding);
 
       if (selected === 'school') {
-        (0, _jquery2.default)(college).add(coding).fadeOut(600).dequeue().animate({ height: '0' }, { duration: 600 }).promise().done(function () {
+        (0, _jquery2.default)(college).add(coding).fadeOut(600).dequeue().animate({ height: '0' }, { duration: 600 }).add(school).fadeOut(600).promise().done(function () {
           _this2.setState({ selected: 'school' });
         });
       } else if (selected === 'college') {
-        (0, _jquery2.default)(school).add(coding).fadeOut(600).dequeue().animate({ height: '0' }, { duration: 600 }).promise().done(function () {
+        (0, _jquery2.default)(school).add(coding).fadeOut(600).dequeue().animate({ height: '0' }, { duration: 600 }).add(college).fadeOut(600).promise().done(function () {
           _this2.setState({ selected: 'college' });
         });
       } else {
-        (0, _jquery2.default)(school).add(college).fadeOut(600).dequeue().animate({ height: '0' }, { duration: 600 }).promise().done(function () {
+        (0, _jquery2.default)(school).add(college).fadeOut(600).dequeue().animate({ height: '0' }, { duration: 600 }).add(coding).fadeOut(600).promise().done(function () {
           _this2.setState({ selected: 'coding' });
         });
       }
     }
   }, {
-    key: 'return',
-    value: function _return() {
+    key: 'returnBack',
+    value: function returnBack() {
       this.setState({ selected: null });
     }
   }, {
@@ -47218,7 +47230,7 @@ var Education = function (_React$Component) {
       if (this.state.selected === null) {
         return _react2.default.createElement(
           'div',
-          { className: 'education' },
+          { className: 'education', ref: 'education' },
           _react2.default.createElement(
             'div',
             { id: 'tile-select' },
@@ -47269,7 +47281,7 @@ var Education = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'education' },
-        _react2.default.createElement(_selectedEducation2.default, { selected: this.state.selected, 'return': this.return.bind(this) })
+        _react2.default.createElement(_selectedEducation2.default, { selected: this.state.selected, 'return': this.returnBack.bind(this) })
       );
     }
   }]);
@@ -57607,6 +57619,7 @@ var SelectedEducation = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       var school = (0, _reactDom.findDOMNode)(this.refs.school);
+      (0, _jquery2.default)(school).hide().fadeIn(600).promise();
     }
   }, {
     key: 'schoolPopulate',

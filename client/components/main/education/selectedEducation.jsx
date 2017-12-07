@@ -30,7 +30,9 @@ class SelectedEducation extends React.Component {
 
   componentDidMount () {
     let school = findDOMNode(this.refs.school);
+    $(school).hide().fadeIn(600).promise();
   }
+
 
   schoolPopulate () {
     this.setState({

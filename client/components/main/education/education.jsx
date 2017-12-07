@@ -12,8 +12,18 @@ class Education extends React.Component {
     };
 
     this.selectEducation = this.selectEducation.bind(this);
-    this.return = this.return.bind(this);
+    this.returnBack = this.returnBack.bind(this);
 
+  }
+
+  componentDidMount () {
+    let education = findDOMNode(this.refs.education);
+    $(education).hide().fadeIn(600).promise();
+  }
+
+  componentDidUpdate () {
+    let education = findDOMNode(this.refs.education);
+    $(education).hide().fadeIn(600).promise();
   }
 
   selectEducation (selected) {
@@ -23,23 +33,23 @@ class Education extends React.Component {
 
     if (selected === 'school') {
       $(college).add(coding).fadeOut(600).dequeue()
-      .animate({height: '0'}, {duration: 600}).promise().done(() => {
+      .animate({height: '0'}, {duration: 600}).add(school).fadeOut(600).promise().done(() => {
         this.setState({selected: 'school'});
       });
     } else if (selected === 'college') {
       $(school).add(coding).fadeOut(600).dequeue()
-      .animate({height: '0'}, {duration: 600}).promise().done(() => {
+      .animate({height: '0'}, {duration: 600}).add(college).fadeOut(600).promise().done(() => {
         this.setState({selected: 'college'});
       });
     } else {
       $(school).add(college).fadeOut(600).dequeue()
-      .animate({height: '0'}, {duration: 600}).promise().done(() => {
+      .animate({height: '0'}, {duration: 600}).add(coding).fadeOut(600).promise().done(() => {
         this.setState({selected: 'coding'});
       });
     }
   }
 
-  return () {
+  returnBack () {
     this.setState({selected: null});
   }
 
@@ -48,7 +58,7 @@ class Education extends React.Component {
   render () {
     if (this.state.selected === null) {
       return (
-        <div className='education'>
+        <div className='education' ref='education'>
           <div id='tile-select'>Select a tile to learn more</div>
           <div className='tile-holder'>
             <div className='tile' id='school-tile' ref='school' onClick={() => { this.selectEducation('school'); }}>
@@ -69,7 +79,7 @@ class Education extends React.Component {
     }
     return (
       <div className='education'>
-        <SelectedEducation selected={this.state.selected} return={this.return.bind(this)}/>
+        <SelectedEducation selected={this.state.selected} return={this.returnBack.bind(this)}/>
       </div>
     );
   }
