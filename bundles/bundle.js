@@ -57557,6 +57557,12 @@ var _react = __webpack_require__(11);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _jquery = __webpack_require__(203);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _reactDom = __webpack_require__(106);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -57598,10 +57604,15 @@ var SelectedEducation = function (_React$Component) {
       }
     }
   }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var school = (0, _reactDom.findDOMNode)(this.refs.school);
+    }
+  }, {
     key: 'schoolPopulate',
     value: function schoolPopulate() {
       this.setState({
-        accomplishments: ['4.0 GPA', 'ASB President', '9 AP classes', '3 season athlete (Cross Country, Basketball, Track)', 'Team captain of Basketball, Track'],
+        accomplishments: ['Associated Student Body President', '4.0 Grade Point Average', '9 AP (Advanced Placement) classes', '3 season athlete: ', '--- Cross Country, Basketball, and Track', 'Team captain of Basketball and Track junior and senior years'],
         pictureSrc: './styles/Kingston-HS.png',
         titleRef: 'http://khs.nkschools.org/',
         title: 'Kingston High School'
@@ -57611,7 +57622,7 @@ var SelectedEducation = function (_React$Component) {
     key: 'collegePopulate',
     value: function collegePopulate() {
       this.setState({
-        accomplishments: ['Major: Science and Management', '  -- Neuroscience Focus', 'Thesis: Effect of Brain Lesions on Zebra Finch Vocals', '  -- Performed brain surgery on finches and observed vocal patterns', 'Involved with many on-campus clubs and intramural sports'],
+        accomplishments: ['Class of 2015', 'Major: Science and Management', '--- Dual major of economics and neuroscience', 'Thesis: Effect of Brain Lesions on Zebra Finch Vocals', '--- Performed brain surgery on finches and observed vocal patterns', 'Involved with many on-campus clubs and intramural sports'],
         pictureSrc: './styles/Claremont_Mckenna_College_Seal.png',
         titleRef: 'https://www.cmc.edu/',
         title: 'Claremont McKenna College'
@@ -57622,7 +57633,7 @@ var SelectedEducation = function (_React$Component) {
     key: 'codingPopulate',
     value: function codingPopulate() {
       this.setState({
-        accomplishments: ['Advanced and immersive full-stack software course', '80 hours per week of learning over 12+ weeks, 1,000 total hours', 'First half focused on computer science knowledge', '  -- Algorithms, domain knowledge, Javascript fundamentals, frameworks', 'Second half focused on creating real world applications', '  -- Varied tech stacks, deployment, agile work environment', 'Tech: React/Redux, Angular, webpack, express/node, SQL,', 'jQuery, D3, Git, AWS, Redis'],
+        accomplishments: ['Advanced and immersive full-stack software course', '80 hours per week of learning over 12+ weeks, 1,000 total hours', 'In the first half of the course: computer science basics', '--- Algorithms, domain knowledge, Javascript fundamentals, frameworks', 'In the second half of the course: real world applications', '--- Varied tech stacks, deployment, agile work environment', 'Learned tech: ', '--- ES6, HTML, CSS, React/Redux, Angular, webpack, express/node, mySQL, postgreSQL, mongoDB, jQuery, ' + 'D3, Git, Redis, Mocha/Chai, Deployment (AWS, Heroku, Digital Ocean)'],
         pictureSrc: './styles/hack-reactor-logo.png',
         titleRef: 'https://www.hackreactor.com/',
         title: 'Hack Reactor Program'
@@ -57634,7 +57645,7 @@ var SelectedEducation = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'school' },
+        { className: 'school', ref: 'school' },
         _react2.default.createElement(
           'div',
           { className: 'school-data' },
@@ -57645,29 +57656,40 @@ var SelectedEducation = function (_React$Component) {
           ),
           _react2.default.createElement(
             'div',
-            null,
+            { className: 'school-links' },
             _react2.default.createElement(
               'a',
               { className: 'school-title', href: this.state.titleRef },
               this.state.title
+            ),
+            _react2.default.createElement(
+              'button',
+              { className: 'return-button', onClick: this.props.return },
+              'Back to Education'
             )
           )
         ),
         _react2.default.createElement(
-          'ul',
-          { className: 'school-accomplishments' },
-          this.state.accomplishments.map(function (item, i) {
-            return _react2.default.createElement(
-              'li',
-              { key: i, className: 'accomplishment' },
-              item
-            );
-          })
-        ),
-        _react2.default.createElement(
-          'button',
-          { onClick: this.props.return },
-          'Click here to go back'
+          'div',
+          { className: 'school-text' },
+          _react2.default.createElement(
+            'ul',
+            { className: 'school-accomplishments' },
+            this.state.accomplishments.map(function (item, i) {
+              if (item[0] === '-') {
+                return _react2.default.createElement(
+                  'li',
+                  { key: i, className: 'sub accomplishment' },
+                  item
+                );
+              }
+              return _react2.default.createElement(
+                'li',
+                { key: i, className: 'bold accomplishment' },
+                item
+              );
+            })
+          )
         )
       );
     }

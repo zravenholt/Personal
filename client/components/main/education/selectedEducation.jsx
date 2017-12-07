@@ -1,4 +1,6 @@
 import React from 'react';
+import $ from 'jquery';
+import {findDOMNode} from 'react-dom';
 
 class SelectedEducation extends React.Component {
   constructor (props) {
@@ -26,14 +28,19 @@ class SelectedEducation extends React.Component {
     }
   }
 
+  componentDidMount () {
+    let school = findDOMNode(this.refs.school);
+  }
+
   schoolPopulate () {
     this.setState({
       accomplishments: [
-        '4.0 GPA',
-        'ASB President',
-        '9 AP classes',
-        '3 season athlete (Cross Country, Basketball, Track)',
-        'Team captain of Basketball, Track'
+        'Associated Student Body President',
+        '4.0 Grade Point Average',
+        '9 AP (Advanced Placement) classes',
+        '3 season athlete: ',
+        '--- Cross Country, Basketball, and Track',
+        'Team captain of Basketball and Track junior and senior years'
       ],
       pictureSrc: './styles/Kingston-HS.png',
       titleRef: 'http://khs.nkschools.org/',
@@ -44,10 +51,11 @@ class SelectedEducation extends React.Component {
   collegePopulate () {
     this.setState({
       accomplishments: [
+        'Class of 2015',
         'Major: Science and Management',
-        '  -- Neuroscience Focus',
+        '--- Dual major of economics and neuroscience',
         'Thesis: Effect of Brain Lesions on Zebra Finch Vocals',
-        '  -- Performed brain surgery on finches and observed vocal patterns',
+        '--- Performed brain surgery on finches and observed vocal patterns',
         'Involved with many on-campus clubs and intramural sports'
       ],
       pictureSrc: './styles/Claremont_Mckenna_College_Seal.png',
@@ -62,12 +70,13 @@ class SelectedEducation extends React.Component {
       accomplishments: [
         'Advanced and immersive full-stack software course',
         '80 hours per week of learning over 12+ weeks, 1,000 total hours',
-        'First half focused on computer science knowledge',
-        '  -- Algorithms, domain knowledge, Javascript fundamentals, frameworks',
-        'Second half focused on creating real world applications',
-        '  -- Varied tech stacks, deployment, agile work environment',
-        'Tech: React/Redux, Angular, webpack, express/node, SQL,',
-        'jQuery, D3, Git, AWS, Redis'
+        'In the first half of the course: computer science basics',
+        '--- Algorithms, domain knowledge, Javascript fundamentals, frameworks',
+        'In the second half of the course: real world applications',
+        '--- Varied tech stacks, deployment, agile work environment',
+        'Learned tech: ',
+        '--- ES6, HTML, CSS, React/Redux, Angular, webpack, express/node, mySQL, postgreSQL, mongoDB, jQuery, ' + 
+        'D3, Git, Redis, Mocha/Chai, Deployment (AWS, Heroku, Digital Ocean)'
       ],
       pictureSrc: './styles/hack-reactor-logo.png',
       titleRef: 'https://www.hackreactor.com/',
@@ -80,21 +89,26 @@ class SelectedEducation extends React.Component {
 
   render () {
     return (
-      <div className='school'>
+      <div className='school' ref='school'>
         <div className='school-data'>
           <div className='school-picture'>
             <img className='school-logo' src={this.state.pictureSrc} />
           </div>
-          <div>
-            <a className='school-title'href={this.state.titleRef}>{this.state.title}</a>
+          <div className='school-links'>
+            <a className='school-title' href={this.state.titleRef}>{this.state.title}</a>
+            <button className='return-button' onClick={this.props.return}>Back to Education</button>
           </div>
         </div>
-        <ul className='school-accomplishments'>
-          {this.state.accomplishments.map((item, i) => {
-            return <li key={i} className='accomplishment'>{item}</li>;
-          })}
-        </ul>
-        <button onClick={this.props.return}>Click here to go back</button>
+        <div className='school-text'>
+          <ul className='school-accomplishments'>
+            {this.state.accomplishments.map((item, i) => {
+              if (item[0] === '-') {
+                return <li key={i} className='sub accomplishment'>{item}</li>;
+              }
+              return <li key={i} className='bold accomplishment'>{item}</li>;
+            })}
+          </ul>
+        </div>
       </div>
     );
   }

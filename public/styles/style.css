@@ -216,6 +216,20 @@ html, body {
   padding: 2px;
 }
 
+.return-button {
+  font-size: 15px;
+  display: block;
+  margin: auto;
+  border: none;
+  color: #313131;
+  background-color: #F0F0F0;
+  cursor: pointer;
+}
+
+.return-button:hover {
+  text-decoration: underline;
+}
+
 .school {
   height: 100%;
   width: 100%;
@@ -223,17 +237,44 @@ html, body {
 }
 
 .school-accomplishments {
-  list-style-type: none;
+  width: 70%;
+  text-align: left;
   padding-left: 0;
   display: block;
+  margin-left: 19%;
+}
+
+.accomplishment {
+  font-size: 20px;
+}
+
+.sub {
+  color: #2E2F38;
+  font-style: italic;
+  list-style: none;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 .school-data {
   height: 200px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 170px;
+}
+
+.school-links {
+  float: inline;
 }
 
 .school-picture {
-  display: inline;
+  height: 200px;
+  float: left;
+  margin: 15px;
+  margin-left: 12%;
+
 }
 
 .school-logo {
@@ -242,8 +283,27 @@ html, body {
   margin-right: auto;
 }
 
+.school-text {
+  clear: left;
+}
+
 .school-title {
-  display: inline;
+  padding: 15px;
+  text-decoration: none;
+  font-size: 35px;
+  color: navy;
+  border-radius: 35px;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.school-title:hover {
+  border-radius: 35px;
+  text-decoration: underline;
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
 }
 
 .tile-holder {
