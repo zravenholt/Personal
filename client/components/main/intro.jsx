@@ -1,5 +1,6 @@
 import React from 'react';
-
+import $ from 'jquery';
+import {findDOMNode} from 'react-dom';
 
 class Intro extends React.Component {
   constructor (props) {
@@ -27,26 +28,37 @@ class Intro extends React.Component {
   }
 
   changePicture(direction) {
+    let image = findDOMNode(this.refs.circularFrame);
     if (direction === 'left') {
-      if (this.state.picLocation > 0) {
-        this.setState({
-          picLocation: this.state.picLocation - 1
-        });
-      } else {
-        this.setState({
-          picLocation: this.state.sourceList.length - 1
-        });
-      }
+      $(image).animate({'left': '+=100px'}, 'fast').fadeToggle('fast').dequeue().promise()
+      .done(() => {
+        if (this.state.picLocation > 0) {
+          this.setState({
+            picLocation: this.state.picLocation - 1
+          });
+        } else {
+          this.setState({
+            picLocation: this.state.sourceList.length - 1
+          });
+        }
+        $(image).css('left', -100).animate({'left': '+=100px'}, 'fast')
+        .fadeToggle('fast').promise();
+      });
     } else {
-      if (this.state.picLocation < this.state.sourceList.length - 1) {
-        this.setState({
-          picLocation: this.state.picLocation + 1
-        });
-      } else {
-        this.setState({
-          picLocation: 0
-        });
-      }
+      $(image).animate({'left': '-=100px'}, 'fast').fadeToggle('fast').dequeue().promise()
+      .done(() => {
+        if (this.state.picLocation < this.state.sourceList.length - 1) {
+          this.setState({
+            picLocation: this.state.picLocation + 1
+          });
+        } else {
+          this.setState({
+            picLocation: 0
+          });
+        }
+        $(image).css('left', 100).animate({'left': '-=100px'}, 'fast')
+        .fadeToggle('fast').promise();
+      });
     }
   }
 
@@ -56,7 +68,7 @@ class Intro extends React.Component {
         <h1 className='greeting'>Hi there, my name is Zane.</h1>
         <div className='carousel'>
           <img className='arrow' onClick={() => { this.changePicture('left'); }} src='./styles/leftArrow.svg.png'/>
-          <div className='circular-frame'>
+          <div className='circular-frame' ref='circularFrame'>
             <img id={this.state.picIDList[this.state.picLocation]} src={this.state.sourceList[this.state.picLocation]}/> 
           </div>
           <img className='arrow' onClick={() => { this.changePicture('right'); }} src='./styles/rightArrow.svg.png'/>

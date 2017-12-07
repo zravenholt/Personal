@@ -36559,6 +36559,12 @@ var _react = __webpack_require__(11);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _jquery = __webpack_require__(203);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _reactDom = __webpack_require__(106);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -36590,32 +36596,41 @@ var Intro = function (_React$Component) {
   _createClass(Intro, [{
     key: 'changePicture',
     value: function changePicture(direction) {
+      var _this2 = this;
+
+      var image = (0, _reactDom.findDOMNode)(this.refs.circularFrame);
       if (direction === 'left') {
-        if (this.state.picLocation > 0) {
-          this.setState({
-            picLocation: this.state.picLocation - 1
-          });
-        } else {
-          this.setState({
-            picLocation: this.state.sourceList.length - 1
-          });
-        }
+        (0, _jquery2.default)(image).animate({ 'left': '+=100px' }, 'fast').fadeToggle('fast').dequeue().promise().done(function () {
+          if (_this2.state.picLocation > 0) {
+            _this2.setState({
+              picLocation: _this2.state.picLocation - 1
+            });
+          } else {
+            _this2.setState({
+              picLocation: _this2.state.sourceList.length - 1
+            });
+          }
+          (0, _jquery2.default)(image).css('left', -100).animate({ 'left': '+=100px' }, 'fast').fadeToggle('fast').promise();
+        });
       } else {
-        if (this.state.picLocation < this.state.sourceList.length - 1) {
-          this.setState({
-            picLocation: this.state.picLocation + 1
-          });
-        } else {
-          this.setState({
-            picLocation: 0
-          });
-        }
+        (0, _jquery2.default)(image).animate({ 'left': '-=100px' }, 'fast').fadeToggle('fast').dequeue().promise().done(function () {
+          if (_this2.state.picLocation < _this2.state.sourceList.length - 1) {
+            _this2.setState({
+              picLocation: _this2.state.picLocation + 1
+            });
+          } else {
+            _this2.setState({
+              picLocation: 0
+            });
+          }
+          (0, _jquery2.default)(image).css('left', 100).animate({ 'left': '-=100px' }, 'fast').fadeToggle('fast').promise();
+        });
       }
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       return _react2.default.createElement(
         'div',
@@ -36629,15 +36644,15 @@ var Intro = function (_React$Component) {
           'div',
           { className: 'carousel' },
           _react2.default.createElement('img', { className: 'arrow', onClick: function onClick() {
-              _this2.changePicture('left');
+              _this3.changePicture('left');
             }, src: './styles/leftArrow.svg.png' }),
           _react2.default.createElement(
             'div',
-            { className: 'circular-frame' },
+            { className: 'circular-frame', ref: 'circularFrame' },
             _react2.default.createElement('img', { id: this.state.picIDList[this.state.picLocation], src: this.state.sourceList[this.state.picLocation] })
           ),
           _react2.default.createElement('img', { className: 'arrow', onClick: function onClick() {
-              _this2.changePicture('right');
+              _this3.changePicture('right');
             }, src: './styles/rightArrow.svg.png' })
         ),
         _react2.default.createElement(
