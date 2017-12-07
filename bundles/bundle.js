@@ -47281,7 +47281,7 @@ var Education = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'education' },
-        _react2.default.createElement(_selectedEducation2.default, { selected: this.state.selected, 'return': this.returnBack.bind(this) })
+        _react2.default.createElement(_selectedEducation2.default, { selected: this.state.selected, returnBack: this.returnBack.bind(this) })
       );
     }
   }]);
@@ -57601,6 +57601,7 @@ var SelectedEducation = function (_React$Component) {
     _this.schoolPopulate = _this.schoolPopulate.bind(_this);
     _this.collegePopulate = _this.collegePopulate.bind(_this);
     _this.codingPopulate = _this.codingPopulate.bind(_this);
+    _this.handleBack = _this.handleBack.bind(_this);
     return _this;
   }
 
@@ -57620,6 +57621,12 @@ var SelectedEducation = function (_React$Component) {
     value: function componentDidMount() {
       var school = (0, _reactDom.findDOMNode)(this.refs.school);
       (0, _jquery2.default)(school).hide().fadeIn(600).promise();
+    }
+  }, {
+    key: 'handleBack',
+    value: function handleBack() {
+      var school = (0, _reactDom.findDOMNode)(this.refs.school);
+      (0, _jquery2.default)(school).fadeOut(600).promise().done(this.props.returnBack);
     }
   }, {
     key: 'schoolPopulate',
@@ -57677,7 +57684,7 @@ var SelectedEducation = function (_React$Component) {
             ),
             _react2.default.createElement(
               'button',
-              { className: 'return-button', onClick: this.props.return },
+              { className: 'return-button', onClick: this.handleBack },
               'Back to Education'
             )
           )

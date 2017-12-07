@@ -16,6 +16,7 @@ class SelectedEducation extends React.Component {
     this.schoolPopulate = this.schoolPopulate.bind(this);
     this.collegePopulate = this.collegePopulate.bind(this);
     this.codingPopulate = this.codingPopulate.bind(this);
+    this.handleBack = this.handleBack.bind(this);
   }
 
   componentWillMount () {
@@ -33,6 +34,10 @@ class SelectedEducation extends React.Component {
     $(school).hide().fadeIn(600).promise();
   }
 
+  handleBack () {
+    let school = findDOMNode(this.refs.school);
+    $(school).fadeOut(600).promise().done(this.props.returnBack);
+  }
 
   schoolPopulate () {
     this.setState({
@@ -98,7 +103,7 @@ class SelectedEducation extends React.Component {
           </div>
           <div className='school-links'>
             <a className='school-title' href={this.state.titleRef}>{this.state.title}</a>
-            <button className='return-button' onClick={this.props.return}>Back to Education</button>
+            <button className='return-button' onClick={this.handleBack}>Back to Education</button>
           </div>
         </div>
         <div className='school-text'>
