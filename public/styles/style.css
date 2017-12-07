@@ -119,6 +119,12 @@ html, body {
   height: 100%;
 }
 
+#skiing {
+  width: auto;
+  height: 100%;
+  margin-left: -25%;
+}
+
 .legend {
   margin: auto;
   margin-top: 10px;

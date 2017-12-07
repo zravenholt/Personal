@@ -6,10 +6,12 @@ class Intro extends React.Component {
   constructor (props) {
     super(props);
 
+    let picCount = 4;
+
     this.state = {
-      picLocation: 0,
-      picIDList: ['tiger', 'ugandan', 'katie'],
-      sourceList: ['./styles/IntroPic.jpg', './styles/IntroPic2.jpg', './styles/IntroPic3.jpg'],
+      picLocation: Math.floor(Math.random() * picCount),
+      picIDList: ['tiger', 'ugandan', 'katie', 'skiing'],
+      sourceList: ['./styles/IntroPic.jpg', './styles/IntroPic2.jpg', './styles/IntroPic3.jpg', './styles/skiing.jpg'],
       descriptionList: ['This is me with my friend; Hobbes the Tiger. ' + 
                         'We share similar passions of adventuring, good meals, and algorithm puzzles. ' + 
                         'We do not share tail-mustache humor.', 
@@ -20,7 +22,11 @@ class Intro extends React.Component {
                         
         'This is me and my girlfriend of 5 years. As much as I hate to admit it, ' + 
                         'she has succeeded in turning me into a self-respecting adult. ' + 
-                        'I did not see that one coming.']
+                        'I did not see that one coming.',
+        'Here you see me out on the slopes with my brother. While I cannot profess to be an excellent skier, ' + 
+                        'I make up for it with attitude and a strong belief in gravity. I must say, ' + 
+                        'skiing is pretty chill.'
+      ]
     };
 
     this.changePicture = this.changePicture.bind(this);
