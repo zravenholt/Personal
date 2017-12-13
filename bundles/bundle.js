@@ -47128,6 +47128,10 @@ var _education = __webpack_require__(202);
 
 var _education2 = _interopRequireDefault(_education);
 
+var _hobbies = __webpack_require__(204);
+
+var _hobbies2 = _interopRequireDefault(_hobbies);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -47160,16 +47164,22 @@ var AboutCenter = function (_React$Component) {
           'Select a field to learn more about me!'
         );
       } else if (this.props.target === 'travel') {
-        return _react2.default.createElement(
+        body = _react2.default.createElement(
           'div',
           null,
           _react2.default.createElement(_worldMap2.default, null)
         );
       } else if (this.props.target === 'education') {
-        return _react2.default.createElement(
+        body = _react2.default.createElement(
           'div',
           null,
           _react2.default.createElement(_education2.default, { selected: null })
+        );
+      } else {
+        body = _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(_hobbies2.default, { selected: null })
         );
       }
       return body;
@@ -57602,7 +57612,7 @@ var Education = function (_React$Component) {
             { className: 'tile-holder' },
             _react2.default.createElement(
               'div',
-              { className: 'tile', id: 'school-tile', ref: 'school', onClick: function onClick() {
+              { className: 'tile education-tile', ref: 'school', onClick: function onClick() {
                   _this3.selectEducation('school');
                 } },
               _react2.default.createElement('img', { className: 'tile-image', src: './styles/Kingston-HS.png' }),
@@ -57614,7 +57624,7 @@ var Education = function (_React$Component) {
             ),
             _react2.default.createElement(
               'div',
-              { className: 'tile', id: 'college-tile', ref: 'college', onClick: function onClick() {
+              { className: 'tile education-tile', ref: 'college', onClick: function onClick() {
                   _this3.selectEducation('college');
                 } },
               _react2.default.createElement('img', { className: 'tile-image', src: './styles/Claremont_Mckenna_College_Seal.png' }),
@@ -57626,7 +57636,7 @@ var Education = function (_React$Component) {
             ),
             _react2.default.createElement(
               'div',
-              { className: 'tile', id: 'coding-tile', ref: 'coding', onClick: function onClick() {
+              { className: 'tile education-tile', ref: 'coding', onClick: function onClick() {
                   _this3.selectEducation('coding');
                 } },
               _react2.default.createElement('img', { className: 'tile-image', src: './styles/hack-reactor-logo.png' }),
@@ -57819,6 +57829,348 @@ var SelectedEducation = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = SelectedEducation;
+
+/***/ }),
+/* 204 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(10);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _jquery = __webpack_require__(35);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _reactDom = __webpack_require__(22);
+
+var _selectedHobby = __webpack_require__(205);
+
+var _selectedHobby2 = _interopRequireDefault(_selectedHobby);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Hobbies = function (_React$Component) {
+  _inherits(Hobbies, _React$Component);
+
+  function Hobbies(props) {
+    _classCallCheck(this, Hobbies);
+
+    var _this = _possibleConstructorReturn(this, (Hobbies.__proto__ || Object.getPrototypeOf(Hobbies)).call(this, props));
+
+    _this.state = {
+      selected: _this.props.selected
+    };
+
+    _this.selectHobby = _this.selectHobby.bind(_this);
+    _this.returnBack = _this.returnBack.bind(_this);
+
+    return _this;
+  }
+
+  _createClass(Hobbies, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var hobby = (0, _reactDom.findDOMNode)(this.refs.hobby);
+      (0, _jquery2.default)(hobby).hide().fadeIn(600).promise();
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      var hobby = (0, _reactDom.findDOMNode)(this.refs.hobby);
+      (0, _jquery2.default)(hobby).hide().fadeIn(600).promise();
+    }
+  }, {
+    key: 'selectHobby',
+    value: function selectHobby(selected) {
+      var _this2 = this;
+
+      var school = (0, _reactDom.findDOMNode)(this.refs.school);
+      var college = (0, _reactDom.findDOMNode)(this.refs.college);
+      var coding = (0, _reactDom.findDOMNode)(this.refs.coding);
+
+      if (selected === 'school') {
+        (0, _jquery2.default)(college).add(coding).fadeOut(600).dequeue().animate({ height: '0' }, { duration: 600 }).add(school).fadeOut(600).promise().done(function () {
+          _this2.setState({ selected: 'school' });
+        });
+      } else if (selected === 'college') {
+        (0, _jquery2.default)(school).add(coding).fadeOut(600).dequeue().animate({ height: '0' }, { duration: 600 }).add(college).fadeOut(600).promise().done(function () {
+          _this2.setState({ selected: 'college' });
+        });
+      } else {
+        (0, _jquery2.default)(school).add(college).fadeOut(600).dequeue().animate({ height: '0' }, { duration: 600 }).add(coding).fadeOut(600).promise().done(function () {
+          _this2.setState({ selected: 'coding' });
+        });
+      }
+    }
+  }, {
+    key: 'returnBack',
+    value: function returnBack() {
+      this.setState({ selected: null });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this3 = this;
+
+      if (this.state.selected === null) {
+        return _react2.default.createElement(
+          'div',
+          { className: 'hobby', ref: 'hobby' },
+          _react2.default.createElement(
+            'div',
+            { id: 'tile-select' },
+            'Select a tile to learn more'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'tile-holder' },
+            _react2.default.createElement(
+              'div',
+              { className: 'tile', ref: 'school', onClick: function onClick() {
+                  _this3.selectHobby('school');
+                } },
+              _react2.default.createElement('img', { className: 'tile-image', src: './styles/Kingston-HS.png' }),
+              _react2.default.createElement(
+                'div',
+                null,
+                'Kingston High School'
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'tile', ref: 'college', onClick: function onClick() {
+                  _this3.selectHobby('college');
+                } },
+              _react2.default.createElement('img', { className: 'tile-image', src: './styles/Claremont_Mckenna_College_Seal.png' }),
+              _react2.default.createElement(
+                'div',
+                null,
+                'Claremont McKenna College'
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'tile', ref: 'coding', onClick: function onClick() {
+                  _this3.selectHobby('coding');
+                } },
+              _react2.default.createElement('img', { className: 'tile-image', src: './styles/hack-reactor-logo.png' }),
+              _react2.default.createElement(
+                'div',
+                null,
+                'Hack Reactor Program'
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'tile', ref: 'coding', onClick: function onClick() {
+                  _this3.selectHobby('coding');
+                } },
+              _react2.default.createElement('img', { className: 'tile-image', src: './styles/hack-reactor-logo.png' }),
+              _react2.default.createElement(
+                'div',
+                null,
+                'Hack Reactor Program'
+              )
+            )
+          )
+        );
+      }
+      return _react2.default.createElement(
+        'div',
+        { className: 'hobby' },
+        _react2.default.createElement(_selectedHobby2.default, { selected: this.state.selected, returnBack: this.returnBack.bind(this) })
+      );
+    }
+  }]);
+
+  return Hobbies;
+}(_react2.default.Component);
+
+exports.default = Hobbies;
+
+/***/ }),
+/* 205 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(10);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _jquery = __webpack_require__(35);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _reactDom = __webpack_require__(22);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SelectedHobby = function (_React$Component) {
+  _inherits(SelectedHobby, _React$Component);
+
+  function SelectedHobby(props) {
+    _classCallCheck(this, SelectedHobby);
+
+    var _this = _possibleConstructorReturn(this, (SelectedHobby.__proto__ || Object.getPrototypeOf(SelectedHobby)).call(this, props));
+
+    _this.state = {
+      accomplishments: [],
+      pictureSrc: '',
+      titleRef: '',
+      title: ''
+    };
+
+    _this.schoolPopulate = _this.schoolPopulate.bind(_this);
+    _this.collegePopulate = _this.collegePopulate.bind(_this);
+    _this.codingPopulate = _this.codingPopulate.bind(_this);
+    _this.handleBack = _this.handleBack.bind(_this);
+    return _this;
+  }
+
+  _createClass(SelectedHobby, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      if (this.props.selected === 'school') {
+        this.schoolPopulate();
+      } else if (this.props.selected === 'college') {
+        this.collegePopulate();
+      } else if (this.props.selected === 'coding') {
+        this.codingPopulate();
+      }
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var school = (0, _reactDom.findDOMNode)(this.refs.school);
+      (0, _jquery2.default)(school).hide().fadeIn(600).promise();
+    }
+  }, {
+    key: 'handleBack',
+    value: function handleBack() {
+      var school = (0, _reactDom.findDOMNode)(this.refs.school);
+      (0, _jquery2.default)(school).fadeOut(600).promise().done(this.props.returnBack);
+    }
+  }, {
+    key: 'schoolPopulate',
+    value: function schoolPopulate() {
+      this.setState({
+        accomplishments: ['Associated Student Body President', '4.0 Grade Point Average', '9 AP (Advanced Placement) classes', '3 season athlete: ', '--- Cross Country, Basketball, and Track', 'Team captain of Basketball and Track junior and senior years'],
+        pictureSrc: './styles/Kingston-HS.png',
+        titleRef: 'http://khs.nkschools.org/',
+        title: 'Kingston High School'
+      });
+    }
+  }, {
+    key: 'collegePopulate',
+    value: function collegePopulate() {
+      this.setState({
+        accomplishments: ['Class of 2015', 'Major: Science and Management', '--- Dual major of economics and neuroscience', 'Thesis: Effect of Brain Lesions on Zebra Finch Vocals', '--- Performed brain surgery on finches and observed vocal patterns to identify audio feedback pathway', 'Involved with many on-campus clubs and intramural sports'],
+        pictureSrc: './styles/Claremont_Mckenna_College_Seal.png',
+        titleRef: 'https://www.cmc.edu/',
+        title: 'Claremont McKenna College'
+
+      });
+    }
+  }, {
+    key: 'codingPopulate',
+    value: function codingPopulate() {
+      this.setState({
+        accomplishments: ['Advanced and immersive full-stack software course', '80 hours per week of learning over 12+ weeks, 1,000 total hours', 'In the first half of the course: computer science basics', '--- Algorithms, domain knowledge, Javascript fundamentals, frameworks', 'In the second half of the course: real world applications', '--- Varied tech stacks, deployment, agile work environment', 'Learned tech: ', '--- ES6, HTML, CSS, React/Redux, Angular, webpack, express/node, mySQL, postgreSQL, mongoDB, jQuery, ' + 'D3, Git, Redis, Mocha/Chai, Deployment (AWS, Heroku, Digital Ocean)'],
+        pictureSrc: './styles/hack-reactor-logo.png',
+        titleRef: 'https://www.hackreactor.com/',
+        title: 'Hack Reactor Program'
+
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'school', ref: 'school' },
+        _react2.default.createElement(
+          'div',
+          { className: 'school-data' },
+          _react2.default.createElement(
+            'div',
+            { className: 'school-picture' },
+            _react2.default.createElement('img', { className: 'school-logo', src: this.state.pictureSrc })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'school-links' },
+            _react2.default.createElement(
+              'a',
+              { className: 'school-title', href: this.state.titleRef },
+              this.state.title
+            ),
+            _react2.default.createElement(
+              'button',
+              { className: 'return-button', onClick: this.handleBack },
+              'Back to Education'
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'school-text' },
+          _react2.default.createElement(
+            'ul',
+            { className: 'school-accomplishments' },
+            this.state.accomplishments.map(function (item, i) {
+              if (item[0] === '-') {
+                return _react2.default.createElement(
+                  'li',
+                  { key: i, className: 'sub accomplishment' },
+                  item
+                );
+              }
+              return _react2.default.createElement(
+                'li',
+                { key: i, className: 'bold accomplishment' },
+                item
+              );
+            })
+          )
+        )
+      );
+    }
+  }]);
+
+  return SelectedHobby;
+}(_react2.default.Component);
+
+exports.default = SelectedHobby;
 
 /***/ })
 /******/ ]);

@@ -1,9 +1,9 @@
 import React from 'react';
-import SelectedEducation from './selectedEducation.jsx';
 import $ from 'jquery';
 import {findDOMNode} from 'react-dom';
+import SelectedHobby from './selectedHobby.jsx';
 
-class Education extends React.Component {
+class Hobbies extends React.Component {
   constructor (props) {
     super(props);
 
@@ -11,22 +11,22 @@ class Education extends React.Component {
       selected: this.props.selected
     };
 
-    this.selectEducation = this.selectEducation.bind(this);
+    this.selectHobby = this.selectHobby.bind(this);
     this.returnBack = this.returnBack.bind(this);
 
   }
 
   componentDidMount () {
-    let education = findDOMNode(this.refs.education);
-    $(education).hide().fadeIn(600).promise();
+    let hobby = findDOMNode(this.refs.hobby);
+    $(hobby).hide().fadeIn(600).promise();
   }
 
   componentDidUpdate () {
-    let education = findDOMNode(this.refs.education);
-    $(education).hide().fadeIn(600).promise();
+    let hobby = findDOMNode(this.refs.hobby);
+    $(hobby).hide().fadeIn(600).promise();
   }
 
-  selectEducation (selected) {
+  selectHobby (selected) {
     let school = findDOMNode(this.refs.school);
     let college = findDOMNode(this.refs.college);
     let coding = findDOMNode(this.refs.coding);
@@ -58,18 +58,22 @@ class Education extends React.Component {
   render () {
     if (this.state.selected === null) {
       return (
-        <div className='education' ref='education'>
+        <div className='hobby' ref='hobby'>
           <div id='tile-select'>Select a tile to learn more</div>
           <div className='tile-holder'>
-            <div className='tile education-tile' ref='school' onClick={() => { this.selectEducation('school'); }}>
+            <div className='tile' ref='school' onClick={() => { this.selectHobby('school'); }}>
               <img className='tile-image' src='./styles/Kingston-HS.png' />
               <div>Kingston High School</div>
             </div>
-            <div className='tile education-tile' ref='college' onClick={() => { this.selectEducation('college'); }}>
+            <div className='tile' ref='college' onClick={() => { this.selectHobby('college'); }}>
               <img className='tile-image' src='./styles/Claremont_Mckenna_College_Seal.png' />
               <div>Claremont McKenna College</div>
             </div>
-            <div className='tile education-tile' ref='coding' onClick={() => { this.selectEducation('coding'); }}>
+            <div className='tile' ref='coding' onClick={() => { this.selectHobby('coding'); }}>
+              <img className='tile-image' src='./styles/hack-reactor-logo.png' />
+              <div>Hack Reactor Program</div>
+            </div>
+            <div className='tile' ref='coding' onClick={() => { this.selectHobby('coding'); }}>
               <img className='tile-image' src='./styles/hack-reactor-logo.png' />
               <div>Hack Reactor Program</div>
             </div>
@@ -78,11 +82,11 @@ class Education extends React.Component {
       );
     }
     return (
-      <div className='education'>
-        <SelectedEducation selected={this.state.selected} returnBack={this.returnBack.bind(this)}/>
+      <div className='hobby'>
+        <SelectedHobby selected={this.state.selected} returnBack={this.returnBack.bind(this)}/>
       </div>
     );
   }
 }
 
-export default Education;
+export default Hobbies;

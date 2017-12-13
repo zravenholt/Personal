@@ -109,6 +109,10 @@ html, body {
   text-align: center;
 }
 
+.hobby {
+  min-height: 500px;
+}
+
 .intro {
   width: 100%;
   margin-bottom: 60px;
@@ -322,14 +326,21 @@ html, body {
   color: white;
   margin: auto;
   display: inline-block;
-  margin-left: 3%;
-  margin-right: 3%;
   background-color: #AEAEAE;
   padding: 5px;
   border-radius: 5px;
   -webkit-box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.75);
+}
+
+.education-tile {
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.hobby-tile {
+  
 }
 
 .tile:hover {
