@@ -6,7 +6,7 @@ class Intro extends React.Component {
   constructor (props) {
     super(props);
 
-    let picCount = 4;
+    let picCount = 6;
 
     this.state = {
       moving: false,
@@ -103,7 +103,7 @@ class Intro extends React.Component {
 
   render () {
     return (
-      <div className='intro'>
+      <div className='intro' >
         <h1 className='greeting'>Hi there, my name is Zane.</h1>
         <div className='carousel'>
           <img className='arrow' onClick={() => {           

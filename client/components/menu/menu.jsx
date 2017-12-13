@@ -1,4 +1,6 @@
 import React from 'react';
+import $ from 'jquery';
+import {findDOMNode} from 'react-dom';
 
 class Menu extends React.Component {
   constructor (props) {
@@ -8,6 +10,19 @@ class Menu extends React.Component {
 
     };
 
+    this.navigate = this.navigate.bind(this);
+
+  }
+
+  navigate (location) {
+
+    let moveToDiv = '.' + location;
+
+    
+    $('html,body').animate({
+      scrollTop: $(moveToDiv).offset().top - 50},
+      'slow');
+
   }
 
   render () {
@@ -15,10 +30,10 @@ class Menu extends React.Component {
       <div className='Menu'>
         <div className='menu-holder'>
           <div className='menu-bar'>
-            <div className='links' >Photos</div>
-            <div className='links' >About Me</div>
-            <div className='links' >Projects</div>
-            <div className='links' >Contact Info</div>
+            <div className='links' onClick={() => { this.navigate('intro'); }}>Photos</div>
+            <div className='links' onClick={() => { this.navigate('about'); }}>About Me</div>
+            <div className='links' onClick={() => { this.navigate('projects'); }}>Projects</div>
+            <div className='links' onClick={() => { this.navigate('photos'); }}>Contact Info</div>
           </div>
         </div>
       </div>

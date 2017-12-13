@@ -46675,6 +46675,12 @@ var _react = __webpack_require__(10);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _jquery = __webpack_require__(35);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _reactDom = __webpack_require__(22);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -46693,12 +46699,25 @@ var Menu = function (_React$Component) {
 
     _this.state = {};
 
+    _this.navigate = _this.navigate.bind(_this);
+
     return _this;
   }
 
   _createClass(Menu, [{
+    key: 'navigate',
+    value: function navigate(location) {
+
+      var moveToDiv = '.' + location;
+
+      (0, _jquery2.default)('html,body').animate({
+        scrollTop: (0, _jquery2.default)(moveToDiv).offset().top - 50 }, 'slow');
+    }
+  }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       return _react2.default.createElement(
         'div',
         { className: 'Menu' },
@@ -46710,22 +46729,30 @@ var Menu = function (_React$Component) {
             { className: 'menu-bar' },
             _react2.default.createElement(
               'div',
-              { className: 'links' },
+              { className: 'links', onClick: function onClick() {
+                  _this2.navigate('intro');
+                } },
               'Photos'
             ),
             _react2.default.createElement(
               'div',
-              { className: 'links' },
+              { className: 'links', onClick: function onClick() {
+                  _this2.navigate('about');
+                } },
               'About Me'
             ),
             _react2.default.createElement(
               'div',
-              { className: 'links' },
+              { className: 'links', onClick: function onClick() {
+                  _this2.navigate('projects');
+                } },
               'Projects'
             ),
             _react2.default.createElement(
               'div',
-              { className: 'links' },
+              { className: 'links', onClick: function onClick() {
+                  _this2.navigate('photos');
+                } },
               'Contact Info'
             )
           )
@@ -46841,7 +46868,7 @@ var Intro = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Intro.__proto__ || Object.getPrototypeOf(Intro)).call(this, props));
 
-    var picCount = 4;
+    var picCount = 6;
 
     _this.state = {
       moving: false,
