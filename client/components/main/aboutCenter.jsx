@@ -1,6 +1,6 @@
 import React from 'react';
 import Datamap from 'datamaps';
-import WorldMap from './worldMap.jsx';
+import WorldMap from './travel/worldMap.jsx';
 import Education from './education/education.jsx';
 
 class AboutCenter extends React.Component {

@@ -62,7 +62,7 @@ class SelectedEducation extends React.Component {
         'Major: Science and Management',
         '--- Dual major of economics and neuroscience',
         'Thesis: Effect of Brain Lesions on Zebra Finch Vocals',
-        '--- Performed brain surgery on finches and observed vocal patterns',
+        '--- Performed brain surgery on finches and observed vocal patterns to identify audio feedback pathway',
         'Involved with many on-campus clubs and intramural sports'
       ],
       pictureSrc: './styles/Claremont_Mckenna_College_Seal.png',
