@@ -104,7 +104,7 @@ html, body {
   width: fit-content;
   margin: auto;
   padding-bottom: 15px;
-  padding-top: 35px;
+  padding-top: 30px;
   position: relative;
   text-align: center;
 }
@@ -206,13 +206,23 @@ html, body {
   background-color: rgb(79, 79, 187);
   position: fixed;
   margin: auto;
+  height: 70px;
   width: 100%;
   z-index: 1;
+  top: 0;
+  -webkit-transition: top 0.2s ease-in-out;
+  -moz-transition: top 0.2s ease-in-out;
+  -o-transition: top 0.2s ease-in-out;
+  transition: top 0.2s ease-in-out;
 }
 
 .main {
   background-color: #FFFFFF;
   }
+
+.nav-up {
+  top: -70px;
+}
   
 .pic-blurb {
   position: relative;

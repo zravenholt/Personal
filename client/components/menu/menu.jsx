@@ -14,21 +14,58 @@ class Menu extends React.Component {
 
   }
 
-  navigate (location) {
+  componentDidMount () {
+    let menu = findDOMNode(this.refs.menu);      
+    let didScroll;
+    let lastScrollTop = 0;
+    let delta = 5;
+    let navbarHeight = $(menu).outerHeight();
+        
+    function hasScrolled () {
+      var st = $(window).scrollTop();
+      if (Math.abs(lastScrollTop - st) <= delta) { return; }
+      
+      if (st > lastScrollTop && st > navbarHeight) {
+        $(menu).removeClass('nav-down').addClass('nav-up');
+      } else {
+        if (st + $(window).height() < $(document).height()) {
+          $(menu).removeClass('nav-up').addClass('nav-down');
+        }
+      }
+      
+      lastScrollTop = st;
+    }
+    
+    $(window).scroll(function(event) {
+      didScroll = true;
+    });
 
+    setInterval(function() {
+      if (didScroll) {
+        hasScrolled();
+        didScroll = false;
+      }
+    }, 250);
+  }
+
+  navigate (location) {
     let moveToDiv = '.' + location;
 
-    
-    $('html,body').animate({
-      scrollTop: $(moveToDiv).offset().top - 50},
-      'slow');
-
+    if (location === 'intro') {
+      $('html,body').animate({
+        scrollTop: $(moveToDiv).offset().top - 70},
+        'slow');
+    } else {
+      $('html,body').animate({
+        scrollTop: $(moveToDiv).offset().top},
+        'slow');
+    }
   }
 
   render () {
     return (
       <div className='Menu'>
-        <div className='menu-holder'>
+        <div className='menu-holder' ref='menu'>
           <div className='menu-bar'>
             <div className='links' onClick={() => { this.navigate('intro'); }}>Photos</div>
             <div className='links' onClick={() => { this.navigate('about'); }}>About Me</div>

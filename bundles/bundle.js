@@ -46620,6 +46620,12 @@ var _main = __webpack_require__(195);
 
 var _main2 = _interopRequireDefault(_main);
 
+var _jquery = __webpack_require__(35);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _reactDom = __webpack_require__(22);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -46705,13 +46711,54 @@ var Menu = function (_React$Component) {
   }
 
   _createClass(Menu, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var menu = (0, _reactDom.findDOMNode)(this.refs.menu);
+      var didScroll = void 0;
+      var lastScrollTop = 0;
+      var delta = 5;
+      var navbarHeight = (0, _jquery2.default)(menu).outerHeight();
+
+      function hasScrolled() {
+        var st = (0, _jquery2.default)(window).scrollTop();
+        if (Math.abs(lastScrollTop - st) <= delta) {
+          return;
+        }
+
+        if (st > lastScrollTop && st > navbarHeight) {
+          (0, _jquery2.default)(menu).removeClass('nav-down').addClass('nav-up');
+        } else {
+          if (st + (0, _jquery2.default)(window).height() < (0, _jquery2.default)(document).height()) {
+            (0, _jquery2.default)(menu).removeClass('nav-up').addClass('nav-down');
+          }
+        }
+
+        lastScrollTop = st;
+      }
+
+      (0, _jquery2.default)(window).scroll(function (event) {
+        didScroll = true;
+      });
+
+      setInterval(function () {
+        if (didScroll) {
+          hasScrolled();
+          didScroll = false;
+        }
+      }, 250);
+    }
+  }, {
     key: 'navigate',
     value: function navigate(location) {
-
       var moveToDiv = '.' + location;
 
-      (0, _jquery2.default)('html,body').animate({
-        scrollTop: (0, _jquery2.default)(moveToDiv).offset().top - 50 }, 'slow');
+      if (location === 'intro') {
+        (0, _jquery2.default)('html,body').animate({
+          scrollTop: (0, _jquery2.default)(moveToDiv).offset().top - 70 }, 'slow');
+      } else {
+        (0, _jquery2.default)('html,body').animate({
+          scrollTop: (0, _jquery2.default)(moveToDiv).offset().top }, 'slow');
+      }
     }
   }, {
     key: 'render',
@@ -46723,7 +46770,7 @@ var Menu = function (_React$Component) {
         { className: 'Menu' },
         _react2.default.createElement(
           'div',
-          { className: 'menu-holder' },
+          { className: 'menu-holder', ref: 'menu' },
           _react2.default.createElement(
             'div',
             { className: 'menu-bar' },
