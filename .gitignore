@@ -2,5 +2,5 @@ node_modules
 .vscode
 config/*
 .DS_Store
-build/
-bundles/
+build
+bundles
