@@ -42,12 +42,7 @@ class SelectedHobby extends React.Component {
   schoolPopulate () {
     this.setState({
       accomplishments: [
-        'Associated Student Body President',
-        '4.0 Grade Point Average',
-        '9 AP (Advanced Placement) classes',
-        '3 season athlete: ',
-        '--- Cross Country, Basketball, and Track',
-        'Team captain of Basketball and Track junior and senior years'
+        
       ],
       pictureSrc: './styles/Kingston-HS.png',
       titleRef: 'http://khs.nkschools.org/',
@@ -58,12 +53,7 @@ class SelectedHobby extends React.Component {
   collegePopulate () {
     this.setState({
       accomplishments: [
-        'Class of 2015',
-        'Major: Science and Management',
-        '--- Dual major of economics and neuroscience',
-        'Thesis: Effect of Brain Lesions on Zebra Finch Vocals',
-        '--- Performed brain surgery on finches and observed vocal patterns to identify audio feedback pathway',
-        'Involved with many on-campus clubs and intramural sports'
+        
       ],
       pictureSrc: './styles/Claremont_Mckenna_College_Seal.png',
       titleRef: 'https://www.cmc.edu/',
@@ -75,15 +65,7 @@ class SelectedHobby extends React.Component {
   codingPopulate () {
     this.setState({
       accomplishments: [
-        'Advanced and immersive full-stack software course',
-        '80 hours per week of learning over 12+ weeks, 1,000 total hours',
-        'In the first half of the course: computer science basics',
-        '--- Algorithms, domain knowledge, Javascript fundamentals, frameworks',
-        'In the second half of the course: real world applications',
-        '--- Varied tech stacks, deployment, agile work environment',
-        'Learned tech: ',
-        '--- ES6, HTML, CSS, React/Redux, Angular, webpack, express/node, mySQL, postgreSQL, mongoDB, jQuery, ' + 
-        'D3, Git, Redis, Mocha/Chai, Deployment (AWS, Heroku, Digital Ocean)'
+        
       ],
       pictureSrc: './styles/hack-reactor-logo.png',
       titleRef: 'https://www.hackreactor.com/',
