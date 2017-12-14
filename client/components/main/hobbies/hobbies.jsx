@@ -27,24 +27,30 @@ class Hobbies extends React.Component {
   }
 
   selectHobby (selected) {
-    let school = findDOMNode(this.refs.school);
-    let college = findDOMNode(this.refs.college);
-    let coding = findDOMNode(this.refs.coding);
+    let games = findDOMNode(this.refs.games);
+    let arts = findDOMNode(this.refs.arts);
+    let sports = findDOMNode(this.refs.sports);
+    let travel = findDOMNode(this.refs.travel);
 
-    if (selected === 'school') {
-      $(college).add(coding).fadeOut(600).dequeue()
-      .animate({height: '0'}, {duration: 600}).add(school).fadeOut(600).promise().done(() => {
-        this.setState({selected: 'school'});
+    if (selected === 'games') {
+      $(arts).add(sports).add(travel).fadeOut(600).dequeue()
+      .animate({height: '0'}, {duration: 600}).add(games).fadeOut(600).promise().done(() => {
+        this.setState({selected: 'games'});
       });
-    } else if (selected === 'college') {
-      $(school).add(coding).fadeOut(600).dequeue()
-      .animate({height: '0'}, {duration: 600}).add(college).fadeOut(600).promise().done(() => {
-        this.setState({selected: 'college'});
+    } else if (selected === 'arts') {
+      $(games).add(sports).add(travel).fadeOut(600).dequeue()
+      .animate({height: '0'}, {duration: 600}).add(arts).fadeOut(600).promise().done(() => {
+        this.setState({selected: 'arts'});
+      });
+    } else if (selected === 'sports') {
+      $(games).add(arts).add(travel).fadeOut(600).dequeue()
+      .animate({height: '0'}, {duration: 600}).add(games).fadeOut(600).promise().done(() => {
+        this.setState({selected: 'sports'});
       });
     } else {
-      $(school).add(college).fadeOut(600).dequeue()
-      .animate({height: '0'}, {duration: 600}).add(coding).fadeOut(600).promise().done(() => {
-        this.setState({selected: 'coding'});
+      $(games).add(arts).add(sports).fadeOut(600).dequeue()
+      .animate({height: '0'}, {duration: 600}).add(games).fadeOut(600).promise().done(() => {
+        this.setState({selected: 'travel'});
       });
     }
   }
@@ -61,21 +67,21 @@ class Hobbies extends React.Component {
         <div className='hobby' ref='hobby'>
           <div id='tile-select'>Select a tile to learn more</div>
           <div className='tile-holder'>
-            <div className='tile' ref='school' onClick={() => { this.selectHobby('school'); }}>
-              <img className='tile-image' src='./styles/Kingston-HS.png' />
-              <div>Kingston High School</div>
+            <div className='tile hobby-tile' ref='games' onClick={() => { this.selectHobby('games'); }}>
+              <img className='tile-image' src='./styles/cards.png' />
+              <div>Games</div>
             </div>
-            <div className='tile' ref='college' onClick={() => { this.selectHobby('college'); }}>
-              <img className='tile-image' src='./styles/Claremont_Mckenna_College_Seal.png' />
-              <div>Claremont McKenna College</div>
+            <div className='tile hobby-tile' ref='arts' onClick={() => { this.selectHobby('arts'); }}>
+              <img className='tile-image' src='./styles/arts.png' />
+              <div>Arts</div>
             </div>
-            <div className='tile' ref='coding' onClick={() => { this.selectHobby('coding'); }}>
-              <img className='tile-image' src='./styles/hack-reactor-logo.png' />
-              <div>Hack Reactor Program</div>
+            <div className='tile hobby-tile' ref='sports' onClick={() => { this.selectHobby('sports'); }}>
+              <img className='tile-image' src='./styles/sports.png' />
+              <div>Sports</div>
             </div>
-            <div className='tile' ref='coding' onClick={() => { this.selectHobby('coding'); }}>
-              <img className='tile-image' src='./styles/hack-reactor-logo.png' />
-              <div>Hack Reactor Program</div>
+            <div className='tile hobby-tile' ref='travel' onClick={() => { this.selectHobby('travel'); }}>
+              <img className='tile-image' src='./styles/globe.png' />
+              <div>Travel</div>
             </div>
           </div>
         </div>

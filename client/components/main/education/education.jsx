@@ -79,7 +79,7 @@ class Education extends React.Component {
     }
     return (
       <div className='education'>
-        <SelectedEducation selected={this.state.selected} returnBack={this.returnBack.bind(this)}/>
+        <SelectedEducation selected={this.state.selected} returnBack={this.returnBack}/>
       </div>
     );
   }

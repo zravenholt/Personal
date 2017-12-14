@@ -57652,7 +57652,7 @@ var Education = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'education' },
-        _react2.default.createElement(_selectedEducation2.default, { selected: this.state.selected, returnBack: this.returnBack.bind(this) })
+        _react2.default.createElement(_selectedEducation2.default, { selected: this.state.selected, returnBack: this.returnBack })
       );
     }
   }]);
@@ -57900,21 +57900,26 @@ var Hobbies = function (_React$Component) {
     value: function selectHobby(selected) {
       var _this2 = this;
 
-      var school = (0, _reactDom.findDOMNode)(this.refs.school);
-      var college = (0, _reactDom.findDOMNode)(this.refs.college);
-      var coding = (0, _reactDom.findDOMNode)(this.refs.coding);
+      var games = (0, _reactDom.findDOMNode)(this.refs.games);
+      var arts = (0, _reactDom.findDOMNode)(this.refs.arts);
+      var sports = (0, _reactDom.findDOMNode)(this.refs.sports);
+      var travel = (0, _reactDom.findDOMNode)(this.refs.travel);
 
-      if (selected === 'school') {
-        (0, _jquery2.default)(college).add(coding).fadeOut(600).dequeue().animate({ height: '0' }, { duration: 600 }).add(school).fadeOut(600).promise().done(function () {
-          _this2.setState({ selected: 'school' });
+      if (selected === 'games') {
+        (0, _jquery2.default)(arts).add(sports).add(travel).fadeOut(600).dequeue().animate({ height: '0' }, { duration: 600 }).add(games).fadeOut(600).promise().done(function () {
+          _this2.setState({ selected: 'games' });
         });
-      } else if (selected === 'college') {
-        (0, _jquery2.default)(school).add(coding).fadeOut(600).dequeue().animate({ height: '0' }, { duration: 600 }).add(college).fadeOut(600).promise().done(function () {
-          _this2.setState({ selected: 'college' });
+      } else if (selected === 'arts') {
+        (0, _jquery2.default)(games).add(sports).add(travel).fadeOut(600).dequeue().animate({ height: '0' }, { duration: 600 }).add(arts).fadeOut(600).promise().done(function () {
+          _this2.setState({ selected: 'arts' });
+        });
+      } else if (selected === 'sports') {
+        (0, _jquery2.default)(games).add(arts).add(travel).fadeOut(600).dequeue().animate({ height: '0' }, { duration: 600 }).add(games).fadeOut(600).promise().done(function () {
+          _this2.setState({ selected: 'sports' });
         });
       } else {
-        (0, _jquery2.default)(school).add(college).fadeOut(600).dequeue().animate({ height: '0' }, { duration: 600 }).add(coding).fadeOut(600).promise().done(function () {
-          _this2.setState({ selected: 'coding' });
+        (0, _jquery2.default)(games).add(arts).add(sports).fadeOut(600).dequeue().animate({ height: '0' }, { duration: 600 }).add(games).fadeOut(600).promise().done(function () {
+          _this2.setState({ selected: 'travel' });
         });
       }
     }
@@ -57942,50 +57947,50 @@ var Hobbies = function (_React$Component) {
             { className: 'tile-holder' },
             _react2.default.createElement(
               'div',
-              { className: 'tile', ref: 'school', onClick: function onClick() {
-                  _this3.selectHobby('school');
+              { className: 'tile hobby-tile', ref: 'games', onClick: function onClick() {
+                  _this3.selectHobby('games');
                 } },
-              _react2.default.createElement('img', { className: 'tile-image', src: './styles/Kingston-HS.png' }),
+              _react2.default.createElement('img', { className: 'tile-image', src: './styles/cards.png' }),
               _react2.default.createElement(
                 'div',
                 null,
-                'Kingston High School'
+                'Games'
               )
             ),
             _react2.default.createElement(
               'div',
-              { className: 'tile', ref: 'college', onClick: function onClick() {
-                  _this3.selectHobby('college');
+              { className: 'tile hobby-tile', ref: 'arts', onClick: function onClick() {
+                  _this3.selectHobby('arts');
                 } },
-              _react2.default.createElement('img', { className: 'tile-image', src: './styles/Claremont_Mckenna_College_Seal.png' }),
+              _react2.default.createElement('img', { className: 'tile-image', src: './styles/arts.png' }),
               _react2.default.createElement(
                 'div',
                 null,
-                'Claremont McKenna College'
+                'Arts'
               )
             ),
             _react2.default.createElement(
               'div',
-              { className: 'tile', ref: 'coding', onClick: function onClick() {
-                  _this3.selectHobby('coding');
+              { className: 'tile hobby-tile', ref: 'sports', onClick: function onClick() {
+                  _this3.selectHobby('sports');
                 } },
-              _react2.default.createElement('img', { className: 'tile-image', src: './styles/hack-reactor-logo.png' }),
+              _react2.default.createElement('img', { className: 'tile-image', src: './styles/sports.png' }),
               _react2.default.createElement(
                 'div',
                 null,
-                'Hack Reactor Program'
+                'Sports'
               )
             ),
             _react2.default.createElement(
               'div',
-              { className: 'tile', ref: 'coding', onClick: function onClick() {
-                  _this3.selectHobby('coding');
+              { className: 'tile hobby-tile', ref: 'travel', onClick: function onClick() {
+                  _this3.selectHobby('travel');
                 } },
-              _react2.default.createElement('img', { className: 'tile-image', src: './styles/hack-reactor-logo.png' }),
+              _react2.default.createElement('img', { className: 'tile-image', src: './styles/globe.png' }),
               _react2.default.createElement(
                 'div',
                 null,
-                'Hack Reactor Program'
+                'Travel'
               )
             )
           )
@@ -58137,7 +58142,7 @@ var SelectedHobby = function (_React$Component) {
             _react2.default.createElement(
               'button',
               { className: 'return-button', onClick: this.handleBack },
-              'Back to Education'
+              'Back to Hobbies'
             )
           )
         ),

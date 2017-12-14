@@ -340,7 +340,9 @@ html, body {
 }
 
 .hobby-tile {
-  
+  min-width: 150px;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
 .tile:hover {
@@ -354,7 +356,7 @@ html, body {
 
 .tile-image {
   height: 100px;
-  width: 100px;
+  
 }
 
 #world-populate-button {

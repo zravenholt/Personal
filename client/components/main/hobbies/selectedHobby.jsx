@@ -103,7 +103,7 @@ class SelectedHobby extends React.Component {
           </div>
           <div className='school-links'>
             <a className='school-title' href={this.state.titleRef}>{this.state.title}</a>
-            <button className='return-button' onClick={this.handleBack}>Back to Education</button>
+            <button className='return-button' onClick={this.handleBack}>Back to Hobbies</button>
           </div>
         </div>
         <div className='school-text'>
