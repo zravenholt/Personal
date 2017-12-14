@@ -58098,9 +58098,9 @@ var SelectedHobby = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (SelectedHobby.__proto__ || Object.getPrototypeOf(SelectedHobby)).call(this, props));
 
     _this.state = {
-      accomplishments: [],
+      examples: [],
       pictureSrc: '',
-      titleRef: '',
+      blurb: '',
       title: ''
     };
 
@@ -58114,8 +58114,8 @@ var SelectedHobby = function (_React$Component) {
   _createClass(SelectedHobby, [{
     key: 'componentWillMount',
     value: function componentWillMount() {
-      if (this.props.selected === 'school') {
-        this.schoolPopulate();
+      if (this.props.selected === 'games') {
+        this.gamesPopulate();
       } else if (this.props.selected === 'college') {
         this.collegePopulate();
       } else if (this.props.selected === 'coding') {
@@ -58135,12 +58135,12 @@ var SelectedHobby = function (_React$Component) {
       (0, _jquery2.default)(school).fadeOut(600).promise().done(this.props.returnBack);
     }
   }, {
-    key: 'schoolPopulate',
-    value: function schoolPopulate() {
+    key: 'gamesPopulate',
+    value: function gamesPopulate() {
       this.setState({
-        accomplishments: [],
+        examples: ['Overwatch', '--- First Person Shooter with diverse cast of characters to play', 'Magic, the Gathering', '--- The best card game there is. Easy to learn, impossible to master.', 'Boardgame classics: Chess, Go, Monopoly, etc'],
         pictureSrc: './styles/Kingston-HS.png',
-        titleRef: 'http://khs.nkschools.org/',
+        blurb: 'I have always loved games. With my brother, my friends, myself, anyone who\'s willing to play really.' + 'My favorite games are ones that have equal balance of planning and executing that plan, ' + 'and sometimes a little luck. Below are some, but not all, of my favorites:',
         title: 'Kingston High School'
       });
     }
