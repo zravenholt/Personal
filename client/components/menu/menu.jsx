@@ -15,6 +15,8 @@ class Menu extends React.Component {
   }
 
   componentDidMount () {
+    //credit for show/hide navbar goes to Marius Craciunoiu and Medium.com
+
     let menu = findDOMNode(this.refs.menu);      
     let didScroll;
     let lastScrollTop = 0;

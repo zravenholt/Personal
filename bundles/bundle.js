@@ -46713,6 +46713,8 @@ var Menu = function (_React$Component) {
   _createClass(Menu, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
+      //credit for show/hide navbar goes to Marius Craciunoiu and Medium.com
+
       var menu = (0, _reactDom.findDOMNode)(this.refs.menu);
       var didScroll = void 0;
       var lastScrollTop = 0;
