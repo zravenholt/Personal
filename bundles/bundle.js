@@ -58138,9 +58138,9 @@ var SelectedHobby = function (_React$Component) {
     key: 'gamesPopulate',
     value: function gamesPopulate() {
       this.setState({
-        examples: ['Overwatch', '--- First Person Shooter with diverse cast of characters to play', 'Magic, the Gathering', '--- The best card game there is. Easy to learn, impossible to master.', 'Boardgame classics: Chess, Go, Monopoly, etc'],
+        examples: ['Overwatch', '--- First Person Shooter videogame with diverse cast of characters to play', 'Magic, the Gathering', '--- The best card game there is. Easy to learn, impossible to master.', 'Boardgame classics: Chess, Go, Monopoly, etc', 'Cabo', '--- Game of memorization and mental trickery, played with a regular deck of cards.', 'Mass Effect', '--- This videogame trilogy is an epic RPG sci-fi that tells its story better than any book could'],
         pictureSrc: './styles/Kingston-HS.png',
-        blurb: 'I have always loved games. With my brother, my friends, myself, anyone who\'s willing to play really.' + 'My favorite games are ones that have equal balance of planning and executing that plan, ' + 'and sometimes a little luck. Below are some, but not all, of my favorites:',
+        blurb: 'I have always loved playing games with people. With my brother, my friends, myself, anyone who\'s willing to play really.' + 'My favorite games are ones that have a good balance of planning ahead and executing that plan, ' + 'and sometimes a little luck. Below are some, but not all, of my favorites:',
         title: 'Kingston High School'
       });
     }
